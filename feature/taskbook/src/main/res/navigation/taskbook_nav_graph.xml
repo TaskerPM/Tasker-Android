@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/taskbook_nav_graph"
+    app:startDestination="@id/taskbookFragment">
+
+    <fragment
+        android:id="@+id/taskbookFragment"
+        android:name="com.tasker.android.taskbook.presentation.TaskbookFragment"
+        android:label="fragment_taskbook"
+        tools:layout="@layout/fragment_taskbook" />
+</navigation>
