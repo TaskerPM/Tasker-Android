@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -31,7 +33,7 @@ android {
         jvmTarget = '1.8'
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
     }
 }
@@ -43,6 +45,9 @@ dependencies {
     implementation project(":feature:collection")
     implementation project(":feature:taskbook")
     implementation project(":feature:mypage")
+    implementation project(":data")
+    implementation project(":domain")
+    implementation project(":common")
 
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
@@ -57,4 +62,9 @@ dependencies {
 
     implementation(AndroidX.NAVIGATION_RUNTIME)
     implementation(AndroidX.NAVIGATION_FRAGMENT)
-    implementation(AndroidX.NAVIGATION_UI)}
+    implementation(AndroidX.NAVIGATION_UI)
+
+    implementation(Google.HILT)
+    kapt(Google.HILT_COMPILER)
+
+}

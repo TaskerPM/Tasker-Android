@@ -3,6 +3,7 @@ package com.tasker.android.app.view
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.view.WindowCompat
 import androidx.core.view.isVisible
@@ -11,9 +12,20 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.tasker.android.app.R
 import com.tasker.android.app.databinding.ActivityMainBinding
+import com.tasker.android.common.model.sms.SmsSendRequest
+import com.tasker.android.data.api.ServerApi
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    @Inject
+    lateinit var api: ServerApi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +36,23 @@ class MainActivity : AppCompatActivity() {
     private fun initialize() {
         makeEdgeScreen()
         setupNavigation()
+        serverTest()
+    }
+
+    private fun serverTest() {
+        CoroutineScope(Dispatchers.IO).launch {
+            kotlin.runCatching {
+                api.postSmsSend(
+                    req = SmsSendRequest("01025528507")
+                )
+            }
+                .onSuccess {
+                    Log.d("Response Success", it.toString())
+                }
+                .onFailure {
+                    Log.d("Response Failed", it.toString())
+                }
+        }
     }
 
     private fun makeEdgeScreen() {

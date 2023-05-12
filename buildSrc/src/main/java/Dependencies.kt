@@ -11,6 +11,15 @@ object AndroidX {
 
 object Google {
     const val MATERIAL = "com.google.android.material:material:1.8.0"
+    const val HILT = "com.google.dagger:hilt-android:2.44"
+    const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:2.44"
+}
+
+object SquareUp {
+    const val OKHTTP3 = "com.squareup.okhttp3:okhttp:4.9.1"
+    const val OKHTTP3_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:4.9.1"
+    const val RETROFIT2 = "com.squareup.retrofit2:retrofit:2.9.0"
+    const val GSON_CONVERTER = "com.squareup.retrofit2:converter-gson:2.9.0"
 }
 
 object AndroidTest {
