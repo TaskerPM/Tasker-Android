@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -45,6 +45,9 @@ dependencies {
     implementation project(":feature:collection")
     implementation project(":feature:taskbook")
     implementation project(":feature:mypage")
+    implementation project(":data")
+    implementation project(":domain")
+    implementation project(":common")
 
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
@@ -62,6 +65,6 @@ dependencies {
     implementation(AndroidX.NAVIGATION_UI)
 
     implementation(Google.HILT)
-    implementation(Google.HILT_COMPILER)
+    kapt(Google.HILT_COMPILER)
 
 }

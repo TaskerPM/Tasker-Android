@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.tasker.android.domain"
-    compileSdk = 33
+    compileSdk = Versions.compileSdk
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
+        minSdk = Versions.minSdk
+        targetSdk = Versions.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

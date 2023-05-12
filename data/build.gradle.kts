@@ -7,11 +7,11 @@ plugins {
 
 android {
     namespace = "com.tasker.android.data"
-    compileSdk = 33
+    compileSdk = Versions.compileSdk
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
+        minSdk = Versions.minSdk
+        targetSdk = Versions.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -37,6 +37,8 @@ android {
 
 dependencies {
 
+    implementation(project(":common"))
+
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
     implementation(Google.MATERIAL)
@@ -46,7 +48,7 @@ dependencies {
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
 
     implementation(Google.HILT)
-    implementation(Google.HILT_COMPILER)
+    kapt(Google.HILT_COMPILER)
 
     implementation(SquareUp.OKHTTP3)
     implementation(SquareUp.OKHTTP3_INTERCEPTOR)
