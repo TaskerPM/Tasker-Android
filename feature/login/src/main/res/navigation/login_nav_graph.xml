@@ -9,7 +9,11 @@
         android:id="@+id/onboardingFragment"
         android:name="com.tasker.android.login.presentation.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" />
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.tasker.android.login.presentation.signup.SignUpFragment"
