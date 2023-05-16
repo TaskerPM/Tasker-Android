@@ -31,9 +31,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+
+    implementation(project(":common"))
 
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
@@ -49,4 +55,6 @@ dependencies {
 
     implementation(AndroidX.ACTIVITY)
     implementation(AndroidX.FRAGMENT)
+
+    implementation(ThirdPartyLib.VIEW_PAGER_INDICATORS)
 }

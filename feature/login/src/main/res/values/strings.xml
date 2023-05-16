@@ -3,7 +3,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Onboarding -->
-    <string name="start">시작하기</string>
+    <string name="onboarding_start">시작하기</string>
 
     <!-- Sign Up -->
     <string name="signup_phrase">안녕하세요!\n휴대폰 번호를 입력해주세요.</string>
