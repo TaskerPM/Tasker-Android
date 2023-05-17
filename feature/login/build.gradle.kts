@@ -31,9 +31,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+
+    implementation(project(":common"))
 
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
@@ -46,4 +52,9 @@ dependencies {
     implementation(AndroidX.NAVIGATION_RUNTIME)
     implementation(AndroidX.NAVIGATION_FRAGMENT)
     implementation(AndroidX.NAVIGATION_UI)
+
+    implementation(AndroidX.ACTIVITY)
+    implementation(AndroidX.FRAGMENT)
+
+    implementation(ThirdPartyLib.VIEW_PAGER_INDICATORS)
 }

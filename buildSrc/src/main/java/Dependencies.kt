@@ -22,6 +22,10 @@ object SquareUp {
     const val GSON_CONVERTER = "com.squareup.retrofit2:converter-gson:2.9.0"
 }
 
+object ThirdPartyLib {
+    const val VIEW_PAGER_INDICATORS = "com.tbuonomo:dotsindicator:4.3"
+}
+
 object AndroidTest {
     const val JUNIT4: String = "junit:junit:4.13.2"
     const val EXT_JUNIT = "androidx.test.ext:junit:1.1.5"

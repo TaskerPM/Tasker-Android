@@ -1,0 +1,20 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_start">시작하기</string>
+
+    <!-- Sign Up -->
+    <string name="signup_phrase">안녕하세요!\n휴대폰 번호를 입력해주세요.</string>
+    <string name="signup_hint_phone_number">휴대폰 번호를 입력해주세요.</string>
+    <string name="signup_get_verification_code">인증번호 받기</string>
+    <string name="signup_phone_input_warning">*11자리 모두 입력해주세요.</string>
+    <string name="signup_hint_verification_code">인증번호 5자리를 입력해주세요.(1분 이내) </string>
+    <string name="signup_code_input_warning">*인증번호를 다시 입력해주세요.</string>
+    <string name="signup_privacy_policy"><u>개인정보처리방침</u></string>
+    <string name="signup_middle_point">·</string>
+    <string name="signup_terms_of_use"><u>이용약관</u></string>
+    <string name="signup_start">동의하고 시작하기</string>
+
+</resources>

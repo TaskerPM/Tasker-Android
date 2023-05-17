@@ -1,5 +1,6 @@
 package com.tasker.android.app.view
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ import com.tasker.android.app.R
 import com.tasker.android.app.databinding.ActivityMainBinding
 import com.tasker.android.common.model.sms.SmsSendRequest
 import com.tasker.android.data.api.ServerApi
+import com.tasker.android.login.activity.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,24 +38,30 @@ class MainActivity : AppCompatActivity() {
     private fun initialize() {
         makeEdgeScreen()
         setupNavigation()
-        serverTest()
+        loginTest()
     }
 
-    private fun serverTest() {
-        CoroutineScope(Dispatchers.IO).launch {
-            kotlin.runCatching {
-                api.postSmsSend(
-                    req = SmsSendRequest("01025528507")
-                )
-            }
-                .onSuccess {
-                    Log.d("Response Success", it.toString())
-                }
-                .onFailure {
-                    Log.d("Response Failed", it.toString())
-                }
-        }
+    private fun loginTest() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
+
+//    private fun serverTest() {
+//        CoroutineScope(Dispatchers.IO).launch {
+//            kotlin.runCatching {
+//                api.postSmsSend(
+//                    req = SmsSendRequest("01025528507")
+//                )
+//            }
+//                .onSuccess {
+//                    Log.d("Response Success", it.toString())
+//                }
+//                .onFailure {
+//                    Log.d("Response Failed", it.toString())
+//                }
+//        }
+//    }
 
     private fun makeEdgeScreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
