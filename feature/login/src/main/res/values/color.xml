@@ -3,6 +3,14 @@
 
     <color name="gray_de">#DEDEDE</color>
     <color name="gray_e2">#E2E2E2</color>
+    <color name="gray_33">#333333</color>
+    <color name="gray_cc">#CCCCCC</color>
+    <color name="gray_b6">#B6B6B6</color>
+    
     <color name="black_1f">#1F1F1F</color>
+    
     <color name="white_ff">#FFFFFF</color>
+    
+    <color name="red_f8">#F86767</color>
+    <color name="red_d0">#D05D4D</color>
 </resources>

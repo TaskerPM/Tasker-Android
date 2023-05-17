@@ -36,7 +36,6 @@
         android:background="@drawable/background_round_button"
         android:fontFamily="@font/font_pretendard_semibold"
         android:gravity="center"
-        android:includeFontPadding="false"
         android:paddingVertical="16dp"
         android:stateListAnimator="@null"
         android:text="@string/onboarding_start"
