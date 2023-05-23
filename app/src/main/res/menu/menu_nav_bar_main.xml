@@ -2,19 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/homeFragment"
-        android:title="@string/home" />
+        android:id="@+id/home_nav_graph"
+        android:icon="@drawable/navigation_home_selector"
+        android:title="@string/navigation_home" />
 
     <item
-        android:id="@+id/collectionFragment"
-        android:title="@string/collection" />
+        android:id="@+id/collection_nav_graph"
+        android:icon="@drawable/navigation_collection_selector"
+        android:title="@string/navigation_collection" />
 
     <item
-        android:id="@+id/taskbookFragment"
-        android:title="@string/taskbook" />
+        android:id="@+id/taskbook_nav_graph"
+        android:icon="@drawable/navigation_taskbook_selector"
+        android:title="@string/navigation_taskbook" />
 
     <item
-        android:id="@+id/mypageFragment"
-        android:title="@string/mypage" />
+        android:id="@+id/mypage_nav_graph"
+        android:icon="@drawable/navigation_mypage_selector"
+        android:title="@string/navigation_mypage" />
 
 </menu>

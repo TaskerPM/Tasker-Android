@@ -13,18 +13,13 @@ import com.tasker.android.login.R
 import com.tasker.android.login.activity.LoginActivity
 import com.tasker.android.login.databinding.FragmentSignUpBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
 
     private val viewModel: SignUpViewModel by viewModels()
-
-    private var myCoroutineJob: Job = Job()
-    private val myCoroutineContext: CoroutineContext
-        get() = Dispatchers.IO + myCoroutineJob
 
     override fun connectViewModel() {
         binding.viewModel = viewModel
@@ -34,6 +29,9 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
         initSmsRetriever()
         initComponentFunction()
         initCollectors()
+
+        //temporarily added
+        startMainActivity()
     }
 
     private fun initSmsRetriever() {

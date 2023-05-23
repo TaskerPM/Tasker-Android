@@ -11,11 +11,11 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(R.layout.frag
     override fun connectViewModel() {}
 
     override fun init() {
-        initFunctions()
+        initComponentFunction()
         setViewPager()
     }
 
-    private fun initFunctions() {
+    private fun initComponentFunction() {
         binding.btnOnboardingStart.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signUpFragment)
         }

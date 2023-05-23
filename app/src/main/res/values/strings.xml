@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Tasker-Android</string>
 
-    <string name="home">홈</string>
-    <string name="collection">모아보기</string>
-    <string name="taskbook">둘러보기</string>
-    <string name="mypage">마이</string>
+    <string name="navigation_home">홈</string>
+    <string name="navigation_collection">모아보기</string>
+    <string name="navigation_taskbook">둘러보기</string>
+    <string name="navigation_mypage">마이</string>
 </resources>
