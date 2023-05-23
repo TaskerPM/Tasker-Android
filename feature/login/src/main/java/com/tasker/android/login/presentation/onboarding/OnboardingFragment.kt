@@ -1,21 +1,14 @@
 package com.tasker.android.login.presentation.onboarding
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.tasker.android.common.base.BaseFragment
 import com.tasker.android.login.R
 import com.tasker.android.login.databinding.FragmentOnboardingBinding
 import com.tasker.android.login.presentation.onboarding.viewpager.OnboardingAdapter
 
-class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
+class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(R.layout.fragment_onboarding) {
 
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-    ): FragmentOnboardingBinding {
-        return FragmentOnboardingBinding.inflate(inflater, container, false)
-    }
+    override fun connectViewModel() {}
 
     override fun init() {
         initFunctions()

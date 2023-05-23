@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
 
 android {
@@ -33,13 +35,14 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
 
     implementation(project(":common"))
+    implementation(project(":domain"))
 
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
@@ -57,4 +60,13 @@ dependencies {
     implementation(AndroidX.FRAGMENT)
 
     implementation(ThirdPartyLib.VIEW_PAGER_INDICATORS)
+
+    implementation(Google.PLAY_SERVICES_AUTH)
+    implementation(Google.PLAY_SERVICES_AUTH_API_PHONE)
+
+    implementation(Google.HILT)
+    kapt(Google.HILT_COMPILER)
+
+    implementation(AndroidX.LIFECYCLE_VIEWMODEL)
+    implementation(AndroidX.LIFECYCLE_LIVEDATA)
 }

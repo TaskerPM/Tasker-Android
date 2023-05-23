@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -32,8 +34,8 @@ android {
         jvmTarget = "1.8"
     }
 
-    buildFeatures{
-        viewBinding = true
+    buildFeatures {
+        dataBinding = true
     }
 }
 
@@ -46,4 +48,8 @@ dependencies {
     testImplementation(AndroidTest.JUNIT4)
     androidTestImplementation(AndroidTest.EXT_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
+
+    implementation(Google.HILT)
+    kapt(Google.HILT_COMPILER)
+
 }

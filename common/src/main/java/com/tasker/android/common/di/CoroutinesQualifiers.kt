@@ -1,4 +1,4 @@
-package com.tasker.android.data.di
+package com.tasker.android.common.di
 
 import javax.inject.Qualifier
 
