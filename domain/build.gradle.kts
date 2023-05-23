@@ -35,6 +35,9 @@ android {
 
 dependencies {
 
+    implementation(project(":data"))
+    implementation(project(":common"))
+
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
     implementation(Google.MATERIAL)
@@ -42,5 +45,7 @@ dependencies {
     testImplementation(AndroidTest.JUNIT4)
     androidTestImplementation(AndroidTest.EXT_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
+
+    implementation(inject)
 
 }

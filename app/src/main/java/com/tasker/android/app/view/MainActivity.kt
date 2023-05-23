@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.tasker.android.app.R
 import com.tasker.android.app.databinding.ActivityMainBinding
+import com.tasker.android.common.constants.Constants
 import com.tasker.android.common.model.sms.SmsSendRequest
 import com.tasker.android.data.api.ServerApi
 import com.tasker.android.login.activity.LoginActivity
@@ -20,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.annotation.meta.When
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -42,9 +44,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginTest() {
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
+        when (intent.getStringExtra("from") ?: "n") {
+            "n" -> {
+                startLoginActivity()
+            }
+            Constants.LAUNCH_FROM_LOGIN_TO_MAIN -> {
+
+            }
+        }
     }
 
 //    private fun serverTest() {
@@ -96,5 +103,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.bnvMain.setupWithNavController(navController)
+    }
+
+    private fun startLoginActivity() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

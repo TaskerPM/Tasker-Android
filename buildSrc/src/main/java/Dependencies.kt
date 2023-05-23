@@ -7,12 +7,17 @@ object AndroidX {
     const val NAVIGATION_RUNTIME = "androidx.navigation:navigation-runtime-ktx:2.5.3"
     const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:2.5.3"
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:2.5.3"
+    const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    const val LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
 }
 
 object Google {
     const val MATERIAL = "com.google.android.material:material:1.8.0"
     const val HILT = "com.google.dagger:hilt-android:2.44"
     const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:2.44"
+    const val PLAY_SERVICES_AUTH = "com.google.android.gms:play-services-auth:20.5.0"
+    const val PLAY_SERVICES_AUTH_API_PHONE =
+        "com.google.android.gms:play-services-auth-api-phone:18.0.1"
 }
 
 object SquareUp {
@@ -31,3 +36,5 @@ object AndroidTest {
     const val EXT_JUNIT = "androidx.test.ext:junit:1.1.5"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.5.1"
 }
+
+const val inject = "javax.inject:javax.inject:1"
