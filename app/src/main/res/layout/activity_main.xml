@@ -34,7 +34,5 @@
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/menu_nav_bar_main" />
         </com.google.android.material.card.MaterialCardView>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -39,6 +39,8 @@ android {
 
 dependencies {
 
+    implementation(project(":common"))
+
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
     implementation(Google.MATERIAL)
