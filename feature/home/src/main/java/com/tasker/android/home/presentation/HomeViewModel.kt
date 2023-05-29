@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.home
+package com.tasker.android.home.presentation
 
 import androidx.lifecycle.ViewModel
 

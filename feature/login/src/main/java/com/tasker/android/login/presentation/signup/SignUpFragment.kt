@@ -26,7 +26,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
     }
 
     override fun init() {
-        initSmsRetriever()
+//        initSmsRetriever()
         initComponentFunction()
         initCollectors()
 

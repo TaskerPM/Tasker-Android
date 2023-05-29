@@ -9,16 +9,28 @@
     <color name="gray_de">#DEDEDE</color>
     <color name="gray_e2">#E2E2E2</color>
     <color name="gray_33">#333333</color>
-    <color name="gray_cc">#CCCCCC</color>
-    <color name="gray_b6">#B6B6B6</color>
-    <color name="gray_d9">#FFD9D9D9</color>
+    <color name="gray_200">#CCCCCC</color>
+    <color name="gray_250">#B6B6B6</color>
+    <color name="gray_d9">#D9D9D9</color>
+    <color name="gray_30">#E8E8E8</color>
+    <color name="gray_15">#F5F5F5</color>
+    <color name="gray_230">#C6C6C6</color>
 
-    <color name="black_1f">#1F1F1F</color>
+    <color name="black_basic">#1F1F1F</color>
     <color name="black_27">#273B4A</color>
-    <color name="black_00">#FF000000</color>
+    <color name="black_00">#000000</color>
+    <color name="black_6b">#6B6B6B</color>
 
-    <color name="white_ff">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_opacity50">#80FFFFFF</color>
 
     <color name="red_f8">#F86767</color>
     <color name="red_d0">#D05D4D</color>
+
+    <color name="temp_tag_time">#E6FBCD</color>
+    <color name="temp_tag_category">#FBEBD3</color>
+    <color name="temp_tag_text_time">#86BA46</color>
+    <color name="temp_tag_text_category">#DE9B38</color>
+
+
 </resources>

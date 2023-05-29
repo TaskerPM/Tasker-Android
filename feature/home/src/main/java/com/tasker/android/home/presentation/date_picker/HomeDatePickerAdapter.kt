@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.home
+package com.tasker.android.home.presentation.date_picker
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.ItemHomeDatePickerBinding
-import com.tasker.android.home.presentation.home.HomeDatePickerAdapter.HomeDatePickerViewHolder
-import com.tasker.android.home.presentation.model.DayNDate
+import com.tasker.android.home.presentation.date_picker.HomeDatePickerAdapter.HomeDatePickerViewHolder
+import com.tasker.android.home.presentation.model.HomeWeeklyCalendarData
 
 
-class HomeDatePickerAdapter(private val list: List<DayNDate>) :
+class HomeDatePickerAdapter(private val list: List<HomeWeeklyCalendarData>) :
     RecyclerView.Adapter<HomeDatePickerViewHolder>() {
 
     lateinit var context: Context
@@ -24,7 +24,7 @@ class HomeDatePickerAdapter(private val list: List<DayNDate>) :
         context = parent.context
         width =
             ((parent.measuredWidth.toFloat()
-                    - (6 * parent.context.resources.getDimension(R.dimen.home_date_picker_margin))) / 7).toInt()
+                    - (6 * parent.context.resources.getDimension(R.dimen.home_date_picker_item_margin))) / 7).toInt()
 
         return HomeDatePickerViewHolder(
             ItemHomeDatePickerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -52,16 +52,16 @@ class HomeDatePickerAdapter(private val list: List<DayNDate>) :
             // handle selected item view
             if (adapterPosition == 1) {
                 binding.tvHomeDatePickerDay.setTextColor(
-                    context.getColor(com.tasker.android.common.R.color.white_ff)
+                    context.getColor(com.tasker.android.common.R.color.white)
                 )
 
                 binding.tvHomeDatePickerDate.setTextColor(
-                    context.getColor(com.tasker.android.common.R.color.white_ff)
+                    context.getColor(com.tasker.android.common.R.color.white)
                 )
 
                 binding.clHomeDatePicker.background = ResourcesCompat.getDrawable(
                     context.resources,
-                    R.drawable.background_home_item_date_picker_selected,
+                    R.drawable.background_item_home_date_picker_selected,
                     null
                 )
             }

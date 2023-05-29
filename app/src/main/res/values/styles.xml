@@ -2,12 +2,16 @@
 <resources>
 
     <style name="BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="android:fontFamily">@font/font_pretendard_medium</item>
+        <item name="android:fontFamily">@font/font_pretendard_medium_500</item>
         <item name="android:textSize">11sp</item>
         <item name="lineHeight">13sp</item>
         <item name="android:textAlignment">center</item>
         <item name="itemTextColor">@color/navigation_text_color_selector</item>
         <item name="itemIconTint">@color/navigation_icon_color_selector</item>
         <item name="itemBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabIconTint">@null</item>
     </style>
 </resources>

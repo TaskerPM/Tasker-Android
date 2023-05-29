@@ -1,6 +1,6 @@
 package com.tasker.android.home.presentation.model
 
-class DayNDate(
+class HomeWeeklyCalendarData(
     val day: String,
     val date: Int,
 )
