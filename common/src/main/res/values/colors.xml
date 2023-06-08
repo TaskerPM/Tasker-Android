@@ -15,6 +15,10 @@
     <color name="gray_30">#E8E8E8</color>
     <color name="gray_15">#F5F5F5</color>
     <color name="gray_230">#C6C6C6</color>
+    <color name="gray_900">#333333</color>
+    <color name="gray_100">#E2E2E2</color>
+    <color name="gray_400">#9C9C9C</color>
+    <color name="gray_800">#565656</color>
 
     <color name="black_basic">#1F1F1F</color>
     <color name="black_27">#273B4A</color>

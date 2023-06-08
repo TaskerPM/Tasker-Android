@@ -1,6 +1,7 @@
 package com.tasker.android.home.presentation
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.tasker.android.common.base.BaseFragment
 import com.tasker.android.home.R
@@ -21,6 +22,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun init() {
         initRecyclerView()
         initViewPager()
+        initComponentFunction()
     }
 
     private fun initRecyclerView() {
@@ -57,5 +59,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 }
             }
         }.attach()
+    }
+
+
+    private fun initComponentFunction() {
+        binding.ivHomeCalendar.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_homeCalendarBottomSheetFragment)
+        }
     }
 }

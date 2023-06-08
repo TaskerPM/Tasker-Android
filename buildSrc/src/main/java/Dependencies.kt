@@ -38,3 +38,7 @@ object AndroidTest {
 }
 
 const val inject = "javax.inject:javax.inject:1"
+
+object Android {
+    const val DESUGAR = "com.android.tools:desugar_jdk_libs:2.0.3"
+}
