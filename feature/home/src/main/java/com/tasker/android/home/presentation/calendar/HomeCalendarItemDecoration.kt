@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.task_view.calendar
+package com.tasker.android.home.presentation.calendar
 
 import android.graphics.Rect
 import android.view.View

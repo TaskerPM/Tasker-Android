@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.task_view.calendar
+package com.tasker.android.home.presentation.calendar
 
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager

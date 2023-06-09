@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.tasker.android.home.presentation.HomeFragment"
+        android:name="com.tasker.android.home.presentation.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,7 +17,7 @@
 
     <dialog
         android:id="@+id/homeCalendarBottomSheetFragment"
-        android:name="com.tasker.android.home.presentation.task_view.calendar.HomeCalendarBottomSheetFragment"
+        android:name="com.tasker.android.home.presentation.calendar.HomeCalendarBottomSheetFragment"
         android:label="fragment_home_calendar_bottom_sheet"
         tools:layout="@layout/fragment_home_calendar_bottom_sheet" />
 

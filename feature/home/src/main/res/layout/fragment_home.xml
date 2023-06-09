@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.tasker.android.home.presentation.HomeViewModel" />
+            type="com.tasker.android.home.presentation.main.HomeViewModel" />
 
     </data>
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
-        tools:context=".presentation.HomeFragment">
+        tools:context=".presentation.main.HomeFragment">
 
         <TextView
             android:id="@+id/tv_home_YM"

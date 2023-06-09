@@ -1,6 +1,6 @@
 package com.tasker.android.home.presentation.model
 
-data class HomeListViewTaskData(
+data class HomeTaskData(
     val text: String,
     val isCompleted: Boolean = false,
     val isFilled: Boolean = false,

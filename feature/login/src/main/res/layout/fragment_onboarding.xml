@@ -26,7 +26,7 @@
             app:dotsColor="@color/black_basic"
             app:dotsSize="7dp"
             app:dotsSpacing="5dp"
-            app:dotsStrokeColor="@color/gray_de"
+            app:dotsStrokeColor="@color/gray_150"
             app:dotsStrokeWidth="3.5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

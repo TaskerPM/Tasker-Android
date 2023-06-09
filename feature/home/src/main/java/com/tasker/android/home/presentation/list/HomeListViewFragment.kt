@@ -1,26 +1,23 @@
-package com.tasker.android.home.presentation.task_view.list
+package com.tasker.android.home.presentation.list
 
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.getSystemService
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.tasker.android.common.base.BaseFragment
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeListViewBinding
-import com.tasker.android.home.presentation.model.HomeListViewTaskData
 
 class HomeListViewFragment :
     BaseFragment<FragmentHomeListViewBinding>(R.layout.fragment_home_list_view) {
 
+    private val viewModel: HomeListViewModel by viewModels()
     private val homeListViewAdapter by lazy { HomeListViewAdapter() }
 
-    val list = mutableListOf<HomeListViewTaskData>()
-
     override fun connectViewModel() {
-
+        binding.viewModel = viewModel
     }
 
     override fun init() {
@@ -33,14 +30,10 @@ class HomeListViewFragment :
         binding.rvHomeListView.adapter = homeListViewAdapter
         binding.rvHomeListView.addItemDecoration(HomeListViewItemDecoration(requireContext()))
 
-        //set dummy data
-        list.add(HomeListViewTaskData("IA 구조도 그리기", false, true, "스터디", "14:00-17:00"))
-        list.add(HomeListViewTaskData("와이어프레임 제작-lofi", false, false, "", ""))
-        list.add(HomeListViewTaskData("IA 구조도 그리기", true, true, "스터디", "14:00-17:00"))
-        list.add(HomeListViewTaskData("와이어프레임 제작-lofi", true, false, "", ""))
+        viewModel.setTaskListDummyData()
 
         lifecycleScope.launchWhenStarted {
-            homeListViewAdapter.submitList(list)
+            homeListViewAdapter.submitList(viewModel.taskList.value)
         }
     }
 

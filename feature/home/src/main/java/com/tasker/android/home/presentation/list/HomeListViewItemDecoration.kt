@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.task_view.list
+package com.tasker.android.home.presentation.list
 
 import android.content.Context
 import android.graphics.Rect

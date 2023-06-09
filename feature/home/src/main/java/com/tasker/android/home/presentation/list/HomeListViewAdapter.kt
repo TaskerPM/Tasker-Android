@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.task_view.list
+package com.tasker.android.home.presentation.list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,10 +13,10 @@ import com.tasker.android.common.util.getColorFrom
 import com.tasker.android.common.util.getDrawableFrom
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.ItemHomeListViewBinding
-import com.tasker.android.home.presentation.model.HomeListViewTaskData
+import com.tasker.android.home.presentation.model.HomeTaskData
 
 class HomeListViewAdapter :
-    ListAdapter<HomeListViewTaskData, HomeListViewAdapter.HomeListViewHolder>(HomeListViewDiffUtil()) {
+    ListAdapter<HomeTaskData, HomeListViewAdapter.HomeListViewHolder>(HomeListViewDiffUtil()) {
 
     lateinit var context: Context
 
@@ -37,7 +37,7 @@ class HomeListViewAdapter :
     inner class HomeListViewHolder(private val binding: ItemHomeListViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: HomeListViewTaskData) {
+        fun bind(data: HomeTaskData) {
             binding.apply {
                 tvHomeTaskText.text = data.text
 
@@ -134,14 +134,14 @@ class HomeListViewAdapter :
         }
     }
 
-    private class HomeListViewDiffUtil : DiffUtil.ItemCallback<HomeListViewTaskData>() {
+    private class HomeListViewDiffUtil : DiffUtil.ItemCallback<HomeTaskData>() {
         override fun areItemsTheSame(
-            oldItem: HomeListViewTaskData, newItem: HomeListViewTaskData,
+            oldItem: HomeTaskData, newItem: HomeTaskData,
         ): Boolean = oldItem == newItem
 
 
         override fun areContentsTheSame(
-            oldItem: HomeListViewTaskData, newItem: HomeListViewTaskData,
+            oldItem: HomeTaskData, newItem: HomeTaskData,
         ): Boolean = oldItem == newItem
     }
 }

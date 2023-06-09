@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation
+package com.tasker.android.home.presentation.main
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -8,7 +8,6 @@ import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeBinding
 import com.tasker.android.home.presentation.date_picker.HomeDatePickerAdapter
 import com.tasker.android.home.presentation.date_picker.HomeDatePickerItemDecoration
-import com.tasker.android.home.presentation.task_view.HomeTaskViewAdapter
 import com.tasker.android.home.presentation.model.HomeWeeklyCalendarData
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -27,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun initRecyclerView() {
         binding.rvHomeDatePicker.apply {
-            adapter = HomeDatePickerAdapter(
+               adapter = HomeDatePickerAdapter(
                 list = listOf(
                     HomeWeeklyCalendarData("월", 30),
                     HomeWeeklyCalendarData("화", 31),
