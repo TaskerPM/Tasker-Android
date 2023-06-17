@@ -18,14 +18,13 @@
         tools:context=".presentation.main.HomeFragment">
 
         <TextView
-            android:id="@+id/tv_home_YM"
+            android:id="@+id/tv_home_year_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:fontFamily="@font/font_pretendard_bold_700"
             android:gravity="center"
             android:lineHeight="19sp"
-            android:text="2023년 01월"
             android:textColor="@color/black_basic"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,9 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:src="@drawable/icon_home_calendar"
-            app:layout_constraintBottom_toBottomOf="@id/tv_home_YM"
-            app:layout_constraintStart_toEndOf="@id/tv_home_YM"
-            app:layout_constraintTop_toTopOf="@id/tv_home_YM" />
+            app:layout_constraintBottom_toBottomOf="@id/tv_home_year_month"
+            app:layout_constraintStart_toEndOf="@id/tv_home_year_month"
+            app:layout_constraintTop_toTopOf="@id/tv_home_year_month" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_home_date_picker"
@@ -50,7 +49,7 @@
             android:orientation="horizontal"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_YM" />
+            app:layout_constraintTop_toBottomOf="@id/tv_home_year_month" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl_home_view_type"

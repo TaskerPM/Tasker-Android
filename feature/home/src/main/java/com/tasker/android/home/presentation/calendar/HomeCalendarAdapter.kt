@@ -1,28 +1,39 @@
 package com.tasker.android.home.presentation.calendar
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tasker.android.common.util.getColorFrom
+import com.tasker.android.common.util.getDayOfWeekShortString
 import com.tasker.android.common.util.getDrawableFrom
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.ItemHomeCalendarBinding
 import com.tasker.android.home.presentation.model.HomeCalendarDate
 import java.time.LocalDate
 
-class HomeCalendarAdapter(private val moveBack: () -> Unit, private val moveForward: () -> Unit) :
-    RecyclerView.Adapter<HomeCalendarAdapter.HomeCalendarViewHolder>() {
+class HomeCalendarAdapter(
+    private val moveBack: () -> Unit,
+    private val moveForward: () -> Unit,
+    private val selectDay: (Int) -> Unit,
+) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    companion object {
+        const val VIEW_TYPE_WEEKDAY = 0
+        const val VIEW_TYPE_CALENDAR = 1
+    }
 
     lateinit var context: Context
 
-    private val currentDate = LocalDate.now()
     private val dateList = mutableListOf<HomeCalendarDate>()
     private var startDayPosition = 0
     private var endDayPosition = 0
-    private var selectedItemPosition = RecyclerView.NO_POSITION
+    var selectedItemPosition = RecyclerView.NO_POSITION
 
-    fun setCalendar(year: Int, month: Int) {
+    @SuppressLint("NotifyDataSetChanged")
+    fun setCalendar(year: Int, month: Int, day: Int) {
         val selectedMonthDate = LocalDate.of(year, month, 1)
         val previousMonthDate = selectedMonthDate.minusMonths(1)
         val nextMonthDate = selectedMonthDate.plusMonths(1)
@@ -64,98 +75,86 @@ class HomeCalendarAdapter(private val moveBack: () -> Unit, private val moveForw
             )
         }
 
+        // exclude weekday headers
         startDayPosition = daysFromPreviousMonth
         endDayPosition = startDayPosition + selectedMonthDate.lengthOfMonth() - 1
-
-        selectedItemPosition = if (month == currentDate.monthValue) {
-            startDayPosition + 7 + currentDate.dayOfMonth - 1
-        } else {
-            startDayPosition + 7
-        }
+        selectedItemPosition =
+            if ((startDayPosition + day - 1) <= selectedMonthDate.lengthOfMonth()) {
+                startDayPosition + day - 1
+            } else {
+                startDayPosition + selectedMonthDate.lengthOfMonth() - 1
+            }
 
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCalendarViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         context = parent.context
 
-        return HomeCalendarViewHolder(
-            ItemHomeCalendarBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
-        )
+        return when (viewType) {
+            VIEW_TYPE_WEEKDAY -> {
+                val binding = ItemHomeCalendarBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+                WeekdayViewHolder(binding)
+            }
+            else -> {
+                val binding = ItemHomeCalendarBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+                CalendarViewHolder(binding)
+            }
+        }
     }
 
-    override fun getItemCount(): Int = 7 + 42
-
-    override fun onBindViewHolder(holder: HomeCalendarViewHolder, position: Int) {
-        holder.bind()
+    override fun getItemViewType(position: Int): Int {
+        return if (position < 7) {
+            VIEW_TYPE_WEEKDAY
+        } else {
+            VIEW_TYPE_CALENDAR
+        }
     }
 
-    inner class HomeCalendarViewHolder(private val binding: ItemHomeCalendarBinding) :
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is WeekdayViewHolder -> holder.bind(position)
+            is CalendarViewHolder -> holder.bind(position - 7)
+        }
+    }
+
+    override fun getItemCount(): Int = 7 + dateList.size
+
+    inner class WeekdayViewHolder(private val binding: ItemHomeCalendarBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind() {
-            initCalendarDates()
-            initSelectedItem()
+        fun bind(weekDayIndex: Int) {
+            binding.tvHomeCalendarDate.text = getDayOfWeekShortString(weekDayIndex + 1)
+        }
+    }
+
+    inner class CalendarViewHolder(private val binding: ItemHomeCalendarBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        var index: Int? = null
+
+        fun bind(index: Int) {
+            this.index = index
+            binding.tvHomeCalendarDate.text = dateList[index].day.toString()
+
             initClickFunction()
-        }
-
-        private fun initCalendarDates() {
-            binding.apply {
-                tvHomeCalendarDate.background = null
-
-                when (adapterPosition) {
-                    0 -> tvHomeCalendarDate.text = "월"
-                    1 -> tvHomeCalendarDate.text = "화"
-                    2 -> tvHomeCalendarDate.text = "수"
-                    3 -> tvHomeCalendarDate.text = "목"
-                    4 -> tvHomeCalendarDate.text = "금"
-                    5 -> tvHomeCalendarDate.text = "토"
-                    6 -> tvHomeCalendarDate.text = "일"
-                    else -> {
-                        tvHomeCalendarDate.text = dateList[adapterPosition - 7].day.toString()
-
-                        val isCurrentMonth =
-                            adapterPosition - 7 in (startDayPosition..endDayPosition)
-
-                        if (isCurrentMonth) {
-                            tvHomeCalendarDate.setTextColor(
-                                getColorFrom(
-                                    context,
-                                    com.tasker.android.common.R.color.gray_800
-                                )
-                            )
-                        } else {
-                            tvHomeCalendarDate.setTextColor(
-                                getColorFrom(
-                                    context,
-                                    com.tasker.android.common.R.color.gray_400
-                                )
-                            )
-                        }
-                    }
-                }
-            }
-        }
-
-        private fun initSelectedItem() {
-            if (adapterPosition == selectedItemPosition) {
-                setSelectedItem()
-            }
+            initUnselectedItem()
+            initSelectedItem()
         }
 
         private fun initClickFunction() {
             binding.apply {
                 tvHomeCalendarDate.setOnClickListener {
-                    when (adapterPosition) {
-                        in 0..6 -> {}
-
-                        in 7 until startDayPosition + 7 -> {
+                    when (index) {
+                        in 0 until startDayPosition -> {
                             moveBack()
                         }
 
-                        in (endDayPosition + 7 + 1) until itemCount -> {
+                        in (endDayPosition + 1) until itemCount -> {
                             moveForward()
                         }
 
@@ -167,26 +166,54 @@ class HomeCalendarAdapter(private val moveBack: () -> Unit, private val moveForw
             }
         }
 
-        private fun selectItem() {
-            val previousSelectedPosition = selectedItemPosition
-            selectedItemPosition = adapterPosition
+        private fun initUnselectedItem() {
+            val isCurrentMonth =
+                index in (startDayPosition..endDayPosition)
 
-            if (previousSelectedPosition != RecyclerView.NO_POSITION) {
-                notifyItemChanged(previousSelectedPosition)
+            binding.tvHomeCalendarDate.apply {
+                this.background = null
+                if (isCurrentMonth) {
+                    binding.tvHomeCalendarDate.setTextColor(
+                        getColorFrom(
+                            context,
+                            com.tasker.android.common.R.color.gray_800
+                        )
+                    )
+                } else {
+                    binding.tvHomeCalendarDate.setTextColor(
+                        getColorFrom(
+                            context,
+                            com.tasker.android.common.R.color.gray_400
+                        )
+                    )
+                }
             }
-
-            notifyItemChanged(selectedItemPosition)
         }
 
-        private fun setSelectedItem() {
-            binding.tvHomeCalendarDate.apply {
-                this.background =
-                    getDrawableFrom(context, R.drawable.background_home_calendar_selected)
+        private fun initSelectedItem() {
+            if (index == selectedItemPosition) {
+                binding.tvHomeCalendarDate.apply {
+                    this.background =
+                        getDrawableFrom(context, R.drawable.background_home_calendar_selected)
 
-                this.setTextColor(
-                    getColorFrom(context, com.tasker.android.common.R.color.white)
-                )
+                    this.setTextColor(
+                        getColorFrom(context, com.tasker.android.common.R.color.white)
+                    )
+                }
             }
+        }
+
+        private fun selectItem() {
+            val previousSelectedPosition = selectedItemPosition
+            selectedItemPosition = index!!
+
+            if (previousSelectedPosition != RecyclerView.NO_POSITION) {
+                notifyItemChanged(previousSelectedPosition + 7)
+            }
+            notifyItemChanged(selectedItemPosition + 7)
+
+            val selectedDay = selectedItemPosition - startDayPosition + 1
+            selectDay(selectedDay)
         }
     }
 }

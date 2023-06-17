@@ -1,6 +1,9 @@
 package com.tasker.android.home.presentation.main
 
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.tasker.android.common.base.BaseFragment
@@ -9,40 +12,60 @@ import com.tasker.android.home.databinding.FragmentHomeBinding
 import com.tasker.android.home.presentation.date_picker.HomeDatePickerAdapter
 import com.tasker.android.home.presentation.date_picker.HomeDatePickerItemDecoration
 import com.tasker.android.home.presentation.model.HomeWeeklyCalendarData
+import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
 
     override fun connectViewModel() {
         binding.viewModel = viewModel
     }
 
     override fun init() {
-        initRecyclerView()
-        initViewPager()
+        initDatePicker()
+        initTaskViewPager()
         initComponentFunction()
     }
 
-    private fun initRecyclerView() {
+    private fun initDatePicker() {
         binding.rvHomeDatePicker.apply {
-               adapter = HomeDatePickerAdapter(
-                list = listOf(
-                    HomeWeeklyCalendarData("월", 30),
-                    HomeWeeklyCalendarData("화", 31),
-                    HomeWeeklyCalendarData("수", 1),
-                    HomeWeeklyCalendarData("목", 2),
-                    HomeWeeklyCalendarData("금", 3),
-                    HomeWeeklyCalendarData("토", 4),
-                    HomeWeeklyCalendarData("일", 5),
-                )
-            )
-
+            adapter = HomeDatePickerAdapter { year, month, day -> selectDate(year, month, day) }
             addItemDecoration(HomeDatePickerItemDecoration(requireContext()))
+        }
+
+        viewModel.getDatePickerList()
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.selectedDate.collect {
+
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.datePickerList.collect { list ->
+                    (binding.rvHomeDatePicker.adapter as HomeDatePickerAdapter)
+                        .differ.submitList(list)
+
+                    val selectedIndex = list.indexOfFirst { it.isSelected }
+                    if (selectedIndex != -1) {
+                        val selectedDate = list[selectedIndex]
+
+                        binding.tvHomeYearMonth.text = getString(
+                            R.string.home_year_month,
+                            selectedDate.year,
+                            String.format("%02d", selectedDate.month)
+                        )
+                    }
+                }
+            }
         }
     }
 
-    private fun initViewPager() {
+    private fun initTaskViewPager() {
         binding.vpHomeTaskView.adapter = HomeTaskViewAdapter(this)
         binding.vpHomeTaskView.isUserInputEnabled = false
         TabLayoutMediator(binding.tlHomeViewType, binding.vpHomeTaskView) { tab, position ->
@@ -65,5 +88,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.ivHomeCalendar.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_homeCalendarBottomSheetFragment)
         }
+    }
+
+    private fun selectDate(year: Int, month: Int, day: Int) {
+        viewModel.selectDate(HomeWeeklyCalendarData(year, month, day, true))
+        viewModel.getDatePickerList()
     }
 }
