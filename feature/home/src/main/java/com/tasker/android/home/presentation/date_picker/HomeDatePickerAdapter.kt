@@ -12,7 +12,7 @@ import com.tasker.android.common.util.getDrawableFrom
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.ItemHomeDatePickerBinding
 import com.tasker.android.home.presentation.date_picker.HomeDatePickerAdapter.HomeDatePickerViewHolder
-import com.tasker.android.home.presentation.model.HomeWeeklyCalendarData
+import com.tasker.android.home.model.HomeWeeklyCalendarData
 
 
 class HomeDatePickerAdapter(private val selectDate: (Int, Int, Int) -> Unit) :

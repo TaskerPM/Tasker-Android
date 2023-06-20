@@ -11,7 +11,7 @@ import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeBinding
 import com.tasker.android.home.presentation.date_picker.HomeDatePickerAdapter
 import com.tasker.android.home.presentation.date_picker.HomeDatePickerItemDecoration
-import com.tasker.android.home.presentation.model.HomeWeeklyCalendarData
+import com.tasker.android.home.model.HomeWeeklyCalendarData
 import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -86,7 +86,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun initComponentFunction() {
         binding.ivHomeCalendar.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_homeCalendarBottomSheetFragment)
+            findNavController().navigate(R.id.navigate_homeFragment_to_homeCalendarBottomSheetFragment)
         }
     }
 

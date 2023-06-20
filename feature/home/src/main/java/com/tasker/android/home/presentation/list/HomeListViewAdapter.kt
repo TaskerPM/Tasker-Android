@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.tasker.android.home.databinding.ItemHomeListViewBinding
-import com.tasker.android.home.presentation.model.HomeTaskData
-import com.tasker.android.home.presentation.util.HomeTaskDesignHelper
+import com.tasker.android.home.model.HomeTaskData
+import com.tasker.android.home.util.HomeTaskDesignHelper
 
-class HomeListViewAdapter :
+class HomeListViewAdapter(private val navigateToDetailPage: (Int) -> Unit) :
     ListAdapter<HomeTaskData, HomeListViewAdapter.HomeListViewHolder>(HomeListViewDiffUtil()) {
 
     lateinit var context: Context
@@ -38,6 +38,10 @@ class HomeListViewAdapter :
 
                 val homeTaskDesignHelper = HomeTaskDesignHelper(context, binding = binding)
                 homeTaskDesignHelper.applyDesign(data = data)
+
+                root.setOnClickListener {
+                    navigateToDetailPage(adapterPosition)
+                }
             }
         }
     }

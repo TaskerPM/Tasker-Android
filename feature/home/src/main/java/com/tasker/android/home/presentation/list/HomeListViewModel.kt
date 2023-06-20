@@ -1,7 +1,7 @@
 package com.tasker.android.home.presentation.list
 
 import androidx.lifecycle.ViewModel
-import com.tasker.android.home.presentation.model.HomeTaskData
+import com.tasker.android.home.model.HomeTaskData
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

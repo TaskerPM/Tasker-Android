@@ -10,7 +10,7 @@ import com.tasker.android.common.util.getDayOfWeekShortString
 import com.tasker.android.common.util.getDrawableFrom
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.ItemHomeCalendarBinding
-import com.tasker.android.home.presentation.model.HomeCalendarDate
+import com.tasker.android.home.model.HomeCalendarDate
 import java.time.LocalDate
 
 class HomeCalendarAdapter(

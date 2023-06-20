@@ -8,7 +8,7 @@ import com.tasker.android.common.base.BaseBottomSheetDialogFragment
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeCalendarBottomSheetBinding
 import com.tasker.android.home.presentation.main.HomeViewModel
-import com.tasker.android.home.presentation.model.HomeWeeklyCalendarData
+import com.tasker.android.home.model.HomeWeeklyCalendarData
 
 class HomeCalendarBottomSheetFragment :
     BaseBottomSheetDialogFragment<FragmentHomeCalendarBottomSheetBinding>(R.layout.fragment_home_calendar_bottom_sheet) {

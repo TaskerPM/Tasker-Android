@@ -1,20 +1,26 @@
 package com.tasker.android.home.presentation.list
 
-import android.content.Context
 import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.tasker.android.common.base.BaseFragment
+import com.tasker.android.common.util.clearKeyboardFocus
+import com.tasker.android.common.util.requestKeyboardFocus
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeListViewBinding
+import com.tasker.android.home.presentation.main.HomeFragmentDirections
 
 class HomeListViewFragment :
     BaseFragment<FragmentHomeListViewBinding>(R.layout.fragment_home_list_view) {
 
     private val viewModel: HomeListViewModel by viewModels()
-    private val homeListViewAdapter by lazy { HomeListViewAdapter() }
+    private val homeListViewAdapter by lazy {
+        HomeListViewAdapter { index ->
+            navigateToDetailPage(
+                index
+            )
+        }
+    }
 
     override fun connectViewModel() {
         binding.viewModel = viewModel
@@ -31,10 +37,7 @@ class HomeListViewFragment :
         binding.rvHomeListView.addItemDecoration(HomeListViewItemDecoration(requireContext()))
 
         viewModel.setTaskListDummyData()
-
-        lifecycleScope.launchWhenStarted {
-            homeListViewAdapter.submitList(viewModel.taskList.value)
-        }
+        homeListViewAdapter.submitList(viewModel.taskList.value)
     }
 
     private fun initComponentFunction() {
@@ -50,7 +53,7 @@ class HomeListViewFragment :
                     llHomeListViewAdd.visibility = View.GONE
                     clHomeTaskAdd.visibility = View.VISIBLE
                     etHomeTaskAdd.requestFocus()
-                    showKeyboard(etHomeTaskAdd)
+                    requestKeyboardFocus(requireActivity(), etHomeTaskAdd)
                 }
 
                 false -> {
@@ -58,21 +61,17 @@ class HomeListViewFragment :
                     clHomeTaskAdd.visibility = View.GONE
                     etHomeTaskAdd.clearFocus()
                     etHomeTaskAdd.text?.clear()
-                    hideKeyboard(binding.etHomeTaskAdd)
+                    clearKeyboardFocus(requireActivity(), etHomeTaskAdd)
                 }
             }
         }
     }
 
-    private fun showKeyboard(editText: EditText) {
-        val imm =
-            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(editText, 0)
-    }
-
-    private fun hideKeyboard(editText: EditText) {
-        val imm: InputMethodManager =
-            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(editText.windowToken, 0)
+    private fun navigateToDetailPage(listIndex: Int) {
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToHomeDetailPageFragment(
+                viewModel.taskList.value[listIndex]
+            )
+        )
     }
 }

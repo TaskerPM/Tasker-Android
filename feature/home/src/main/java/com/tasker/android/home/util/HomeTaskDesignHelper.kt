@@ -1,9 +1,9 @@
-package com.tasker.android.home.presentation.util
+package com.tasker.android.home.util
 
 import com.tasker.android.common.util.getColorFrom
 import com.tasker.android.common.util.getDrawableFrom
 import com.tasker.android.home.databinding.ItemHomeListViewBinding
-import com.tasker.android.home.presentation.model.HomeTaskData
+import com.tasker.android.home.model.HomeTaskData
 import android.content.Context
 import android.view.View
 import com.tasker.android.common.util.applyDrawableTintColor

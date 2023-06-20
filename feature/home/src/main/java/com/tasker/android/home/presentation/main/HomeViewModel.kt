@@ -2,7 +2,7 @@ package com.tasker.android.home.presentation.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tasker.android.home.presentation.model.HomeWeeklyCalendarData
+import com.tasker.android.home.model.HomeWeeklyCalendarData
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.time.LocalDate

@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.model
+package com.tasker.android.home.model
 
 data class HomeCalendarDate(
     val year: Int,
