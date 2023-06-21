@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.detail.HomeDetailPageFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tasker.android.home.presentation.detail.HomeDetailPageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/tb_home_detail_page"
+            layout="@layout/default_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/cl_home_detail_page_add_note"
+            app:layout_constraintTop_toBottomOf="@id/tb_home_detail_page">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_home_detail_page_task_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:background="@null"
+                        android:fontFamily="@font/font_pretendard_semibold_600"
+                        android:gravity="start"
+                        android:lineHeight="19sp"
+                        android:text="와이어프레임 제작-lofi"
+                        android:textColor="@color/black_basic"
+                        android:textColorHint="@color/black_basic"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:targetApi="p" />
+
+                    <TextView
+                        android:id="@+id/tv_home_detail_page_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/font_pretendard_regular_400"
+                        android:lineHeight="17sp"
+                        android:text="@string/tag_category"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_home_detail_page_task_name"
+                        tools:targetApi="p" />
+
+                    <TextView
+                        android:id="@+id/tv_home_detail_page_category_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/background_home_task_tag"
+                        android:fontFamily="@font/font_pretendard_regular_400"
+                        android:lineHeight="14sp"
+                        android:padding="6dp"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_home_detail_page_category"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_home_detail_page_category"
+                        app:layout_goneMarginEnd="4dp"
+                        tools:targetApi="p" />
+
+                    <TextView
+                        android:id="@+id/tv_home_detail_page_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/font_pretendard_regular_400"
+                        android:lineHeight="17sp"
+                        android:text="@string/tag_time"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_home_detail_page_category"
+                        tools:targetApi="p" />
+
+                    <TextView
+                        android:id="@+id/tv_home_detail_page_time_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/background_home_task_tag"
+                        android:fontFamily="@font/font_pretendard_regular_400"
+                        android:lineHeight="14sp"
+                        android:padding="6dp"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_home_detail_page_time"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_home_detail_page_time"
+                        app:layout_goneMarginEnd="4dp"
+                        tools:targetApi="p" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/gray_30" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_home_detail_page_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <include
+                    android:id="@+id/item_home_detail_page_note"
+                    layout="@layout/item_note"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_30"
+            app:layout_constraintTop_toTopOf="@id/cl_home_detail_page_add_note" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_home_detail_page_add_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_home_detail_page_add_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_home_add_note"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/font_pretendard_regular_400"
+                android:lineHeight="17sp"
+                android:text="@string/home_detail_page_add_note"
+                android:textColor="@color/red_basic"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_home_detail_page_add_note"
+                app:layout_constraintStart_toEndOf="@id/iv_home_detail_page_add_note"
+                app:layout_constraintTop_toTopOf="@id/iv_home_detail_page_add_note"
+                tools:targetApi="p" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

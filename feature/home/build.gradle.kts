@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id ("androidx.navigation.safeargs.kotlin")
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -27,6 +29,8 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -39,6 +43,8 @@ android {
 
 dependencies {
 
+    implementation(project(":common"))
+
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
     implementation(Google.MATERIAL)
@@ -50,4 +56,6 @@ dependencies {
     implementation(AndroidX.NAVIGATION_RUNTIME)
     implementation(AndroidX.NAVIGATION_FRAGMENT)
     implementation(AndroidX.NAVIGATION_UI)
+
+    coreLibraryDesugaring(Android.DESUGAR)
 }

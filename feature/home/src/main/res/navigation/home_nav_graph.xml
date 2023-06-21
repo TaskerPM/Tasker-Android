@@ -7,7 +7,30 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.tasker.android.home.presentation.HomeFragment"
+        android:name="com.tasker.android.home.presentation.main.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/navigate_homeFragment_to_homeCalendarBottomSheetFragment"
+            app:destination="@id/homeCalendarBottomSheetFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_homeDetailPageFragment"
+            app:destination="@id/homeDetailPageFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/homeCalendarBottomSheetFragment"
+        android:name="com.tasker.android.home.presentation.calendar.HomeCalendarBottomSheetFragment"
+        android:label="fragment_home_calendar_bottom_sheet"
+        tools:layout="@layout/fragment_home_calendar_bottom_sheet" />
+    <fragment
+        android:id="@+id/homeDetailPageFragment"
+        android:name="com.tasker.android.home.presentation.detail.HomeDetailPageFragment"
+        android:label="fragment_home_detail_page"
+        tools:layout="@layout/fragment_home_detail_page">
+        <argument
+            android:name="taskData"
+            app:argType="com.tasker.android.home.model.HomeTaskData" />
+    </fragment>
+
 </navigation>

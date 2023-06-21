@@ -1,4 +1,24 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Common -->
+    <string name="tag_category">카테고리</string>
+    <string name="tag_time">시간</string>
+    <string name="save">저장</string>
+
+    <!-- Home -->
+    <string name="home_year_month">%1$d년 %2$s월</string>
+    <string name="home_list_view_add_task">추가</string>
+
+
+    <!-- Home Calendar Bottom Sheet -->
+    <string name="home_calendar_bottom_sheet_today">오늘</string>
+    <string name="home_calendar_bottom_sheet_date">%1$d년 %2$s월</string>
+
+
+    <!-- Home Detail Page -->
+    <string name="home_detail_page_add_note">노트 추가</string>
+    <string name="home_detail_page_tag_none">선택 안 함</string>
+
+
+
 </resources>
