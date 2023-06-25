@@ -16,6 +16,7 @@ import com.tasker.android.common.util.requestKeyboardFocus
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeDetailPageBinding
 import com.tasker.android.home.model.HomeTaskData
+import com.tasker.android.home.presentation.dialog.UnsavedChangesDialog
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
@@ -49,7 +50,11 @@ class HomeDetailPageFragment :
 
     private fun initBackNavigation() {
         binding.tbHomeDetailPage.tbBtnBack.setOnClickListener {
-            findNavController().navigateUp()
+            if (!isFirstAddedNote) {
+                showUnSavedChangesDialog()
+            } else {
+                findNavController().navigateUp()
+            }
         }
     }
 
@@ -185,5 +190,18 @@ class HomeDetailPageFragment :
 
     private fun initNoteContent(note: List<String>) {
         (binding.rvHomeDetailPageNote.adapter as NoteAdapter).differ.submitList(note)
+    }
+
+    private fun showUnSavedChangesDialog() {
+        val dialog = UnsavedChangesDialog()
+        dialog.setButtonClickListener(object : UnsavedChangesDialog.OnButtonClickListener {
+            override fun onSaveBtnClicked() {
+            }
+
+            override fun onBackBtnClicked() {
+                findNavController().navigateUp()
+            }
+        })
+        dialog.show(childFragmentManager, "UnsavedChangesDialog")
     }
 }
