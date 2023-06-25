@@ -28,6 +28,8 @@ class HomeDetailPageFragment :
 
     private val noteAdapter by lazy { NoteAdapter() }
 
+    private var isFirstAddedNote = true
+
     override fun connectViewModel() {
         binding.viewModel = viewModel
     }
@@ -54,6 +56,13 @@ class HomeDetailPageFragment :
     private fun initComponentFunction() {
         binding.clHomeDetailPageAddNote.setOnClickListener {
             setEditableNote(isEnabled = true)
+            if (isFirstAddedNote) {
+                isFirstAddedNote = false
+            } else {
+                viewModel.addNotes(binding.itemHomeDetailPageNote.etNoteContent.text.toString())
+                binding.itemHomeDetailPageNote.etNoteContent.text = null
+            }
+
         }
     }
 

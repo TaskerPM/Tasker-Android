@@ -32,4 +32,12 @@ class HomeDetailPageViewModel : ViewModel() {
             _noteList.emit(dummyList)
         }
     }
+
+    fun addNotes(note: String) {
+        viewModelScope.launch {
+            val updatedList = noteList.value.toMutableList()
+            updatedList.add(note)
+            _noteList.emit(updatedList)
+        }
+    }
 }
