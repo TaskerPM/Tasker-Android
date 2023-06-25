@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="viewModel"
-            type="com.tasker.android.home.presentation.list.HomeListViewModel" />
+            name="homeViewModel"
+            type="com.tasker.android.home.presentation.main.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/ll_home_list_view_add"
+            android:id="@+id/ll_home_task_add_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -51,7 +52,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_home_task_add"
+            android:id="@+id/cl_home_task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -76,8 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:enabled="false"
                 android:fontFamily="@font/font_pretendard_regular_400"
+                android:inputType="text"
                 android:lineHeight="16sp"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"

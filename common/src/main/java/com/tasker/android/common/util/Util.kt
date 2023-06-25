@@ -1,6 +1,5 @@
 package com.tasker.android.common.util
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.inputmethod.InputMethodManager
@@ -41,14 +40,14 @@ fun getDayOfWeekShortString(weekDay: Int): String {
     return dayOfEnum.getDisplayName(TextStyle.SHORT, Locale("ko", "KR"))
 }
 
-fun requestKeyboardFocus(activity: Activity, editText: EditText) {
+fun requestKeyboardFocus(editText: EditText) {
     val imm =
-        activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.showSoftInput(editText, 0)
 }
 
-fun clearKeyboardFocus(activity: Activity, editText: EditText) {
+fun clearKeyboardFocus(editText: EditText) {
     val imm: InputMethodManager =
-        activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(editText.windowToken, 0)
 }

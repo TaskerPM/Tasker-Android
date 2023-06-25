@@ -41,8 +41,8 @@
             android:layout_marginEnd="8dp"
             android:background="@color/gray_200"
             android:elevation="1dp"
-            android:visibility="gone"
             android:outlineProvider="none"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_home_task_is_completed"
@@ -78,7 +78,5 @@
             app:layout_constraintEnd_toStartOf="@id/tv_home_task_tag_time"
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="p" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

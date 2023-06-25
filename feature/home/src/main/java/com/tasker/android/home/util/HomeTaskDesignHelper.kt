@@ -10,11 +10,13 @@ import com.tasker.android.common.util.applyDrawableTintColor
 import com.tasker.android.home.R
 
 class HomeTaskDesignHelper(
-    private val context: Context,
     private val binding: ItemHomeListViewBinding,
 ) {
 
+    lateinit var context: Context
+
     fun applyDesign(data: HomeTaskData) {
+        context = binding.root.context
         binding.apply {
             tvHomeTaskText.text = data.text
 

@@ -26,6 +26,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         initDatePicker()
         initTaskViewPager()
         initComponentFunction()
+
+        viewModel.setTaskListDummyData()
     }
 
     private fun initDatePicker() {

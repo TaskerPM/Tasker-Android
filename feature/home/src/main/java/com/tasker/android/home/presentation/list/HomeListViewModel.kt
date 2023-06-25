@@ -1,23 +1,43 @@
 package com.tasker.android.home.presentation.list
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.tasker.android.home.model.HomeTaskData
+import com.tasker.android.home.model.HomeWeeklyCalendarData
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 class HomeListViewModel : ViewModel() {
 
-    private val _taskList = MutableStateFlow(mutableListOf<HomeTaskData>())
+    private val _taskList = MutableStateFlow<List<HomeTaskData>>(emptyList())
     val taskList: StateFlow<List<HomeTaskData>> get() = _taskList
 
-    fun setTaskListDummyData() {
-        val list = mutableListOf<HomeTaskData>()
+    fun initTaskList(selectedDate: HomeWeeklyCalendarData, list: List<HomeTaskData>) {
+        viewModelScope.launch {
+            val filteredList = list.filter { task ->
+                task.year == selectedDate.year && task.month == selectedDate.month && task.day == selectedDate.day
+            }
 
-        list.add(HomeTaskData("IA 구조도 그리기", false, true, "스터디", "14:00-17:00"))
-        list.add(HomeTaskData("와이어프레임 제작-lofi", false, false, "", ""))
-        list.add(HomeTaskData("IA 구조도 그리기", true, true, "스터디", "14:00-17:00"))
-        list.add(HomeTaskData("와이어프레임 제작-lofi", true, false, "", ""))
+            _taskList.emit(filteredList)
+        }
+    }
 
-        _taskList.value = list
+    fun addTask(text: String) {
+        viewModelScope.launch {
+            val list = _taskList.value.toMutableList()
+            list.add(HomeTaskData(text))
+
+            _taskList.emit(list)
+        }
+    }
+
+    fun removeTask(position: Int) {
+        viewModelScope.launch {
+            val list = _taskList.value.toMutableList()
+            list.removeAt(position)
+
+            _taskList.emit(list)
+        }
     }
 }
