@@ -44,8 +44,7 @@ class HomeListViewAdapter(
 
         fun bind(data: HomeTaskData) {
             binding.apply {
-                tvHomeTaskText.text = data.text
-
+                taskData = data
                 homeTaskDesignHelper.applyDesign(data)
 
                 clHomeTask.setOnClickListener {

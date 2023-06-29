@@ -1,5 +1,6 @@
 package com.tasker.android.home.presentation.list
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.tasker.android.common.base.BaseFragment
 import com.tasker.android.common.util.clearKeyboardFocus
+import com.tasker.android.common.util.getTouchOutListener
 import com.tasker.android.common.util.requestKeyboardFocus
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeListViewBinding
@@ -26,7 +28,7 @@ class HomeListViewFragment :
     private val homeViewModel: HomeViewModel by activityViewModels()
     private val viewModel: HomeListViewModel by viewModels()
 
-    private val homeListViewAdapter by lazy {
+    private val homeTaskAdapter by lazy {
         HomeListViewAdapter { index -> navigateToDetailPage(index) }
     }
 
@@ -41,12 +43,13 @@ class HomeListViewFragment :
     }
 
     private fun initListView() {
-        val swipeItemHelper = SwipeController(requireContext()) { position -> deleteTask(position) }
+        val swipeItemHelper = SwipeController(
+            requireContext()
+        ) { position -> deleteTask(position) }
         val itemTouchHelper = ItemTouchHelper(swipeItemHelper)
 
         binding.rvHomeListView.apply {
-            this.adapter = homeListViewAdapter
-            this.addItemDecoration(HomeListViewItemDecoration(requireContext()))
+            this.adapter = homeTaskAdapter
             itemTouchHelper.attachToRecyclerView(this)
         }
 
@@ -55,7 +58,7 @@ class HomeListViewFragment :
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.taskList.collect {
-                    homeListViewAdapter.submitList(it)
+                    homeTaskAdapter.submitList(it)
                     Log.d("list", it.toString())
                     convertEditMode(false)
                 }
@@ -71,6 +74,7 @@ class HomeListViewFragment :
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun initComponentFunction() {
         binding.apply {
             llHomeTaskAddBtn.setOnClickListener {
@@ -79,11 +83,14 @@ class HomeListViewFragment :
 
             clHomeTaskInput.setOnClickListener(null)
 
-            root.setOnClickListener { view ->
-                if (view.id != R.id.cl_home_task_input) {
-                    convertEditMode(editMode = false, saveStatus = true)
-                }
+            val onTouchOutListener = getTouchOutListener(etHomeTaskAdd) {
+                convertEditMode(
+                    editMode = false,
+                    saveStatus = true
+                )
             }
+            root.setOnTouchListener(onTouchOutListener)
+            requireActivity().window.decorView.rootView.setOnTouchListener(onTouchOutListener)
         }
     }
 
@@ -120,7 +127,7 @@ class HomeListViewFragment :
     private fun navigateToDetailPage(listIndex: Int) {
         findNavController().navigate(
             HomeFragmentDirections.actionHomeFragmentToHomeDetailPageFragment(
-                homeViewModel.taskList.value[listIndex]
+                viewModel.taskList.value[listIndex]
             )
         )
     }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/tv_home_category_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_home_task_tag"
+            android:fontFamily="@font/font_pretendard_regular_400"
+            android:gravity="center"
+            android:lineHeight="14sp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p" />
+
+        <TextView
+            android:id="@+id/tv_home_category_header_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_home_task_tag"
+            android:fontFamily="@font/font_pretendard_medium_500"
+            android:gravity="center"
+            android:paddingHorizontal="3dp"
+            android:paddingVertical="6dp"
+            android:text="@string/category_header_none"
+            android:textColor="@color/gray_300"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p" />
+
+        <TextView
+            android:id="@+id/tv_home_category_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_home_category_add_task"
+            android:fontFamily="@font/font_pretendard_regular_400"
+            android:gravity="center"
+            android:paddingStart="4dp"
+            android:paddingEnd="8dp"
+            android:text="@string/task_add"
+            android:textColor="@color/gray_200"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/icon_home_add_task"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

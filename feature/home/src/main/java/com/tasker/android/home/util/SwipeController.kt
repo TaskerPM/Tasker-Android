@@ -6,6 +6,7 @@ import android.graphics.Paint
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.tasker.android.common.util.getColorFrom
+import com.tasker.android.home.presentation.category.HomeCategoryViewAdapter
 
 class SwipeController(
     private val context: Context,
@@ -21,6 +22,16 @@ class SwipeController(
         backgroundPaint.color = getColorFrom(context, com.tasker.android.common.R.color.red_basic)
     }
 
+    override fun getSwipeDirs(
+        recyclerView: RecyclerView,
+        viewHolder: RecyclerView.ViewHolder,
+    ): Int {
+        if (viewHolder is HomeCategoryViewAdapter.HomeCategoryHeaderHolder ||
+            viewHolder is HomeCategoryViewAdapter.HomeCategoryAddViewHolder
+        ) return 0
+        return super.getSwipeDirs(recyclerView, viewHolder)
+    }
+
     override fun onMove(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder,
@@ -28,9 +39,10 @@ class SwipeController(
     ): Boolean = false
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+        val pos = viewHolder.adapterPosition
+
         if (direction == ItemTouchHelper.LEFT) {
-            val position = viewHolder.adapterPosition
-            onSwiped(position)
+            onSwiped(pos)
         }
     }
 
