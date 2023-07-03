@@ -65,7 +65,7 @@ class HomeDetailPageFragment :
                 true -> {
                     itemHomeDetailPageNote.root.visibility = View.VISIBLE
                     itemHomeDetailPageNote.etNoteContent.requestFocus()
-                    requestKeyboardFocus(requireActivity(), itemHomeDetailPageNote.etNoteContent)
+                    requestKeyboardFocus(itemHomeDetailPageNote.etNoteContent)
                 }
 
                 false -> {

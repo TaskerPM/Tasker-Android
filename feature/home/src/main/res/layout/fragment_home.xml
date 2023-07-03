@@ -57,8 +57,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_home_date_picker"
-            app:tabIndicator="@null"
             app:tabIconTint="@color/home_view_type_icon_color_selector"
+            app:tabIndicator="@null"
+            app:tabPaddingEnd="6dp"
+            app:tabPaddingStart="6dp"
             app:tabRippleColor="@null">
 
         </com.google.android.material.tabs.TabLayout>

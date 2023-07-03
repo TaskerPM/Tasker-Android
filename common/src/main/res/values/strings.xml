@@ -3,4 +3,9 @@
     
     <!-- Note -->
     <string name="note_title">Note.</string>
+
+    <!-- Task Item -->
+    <string name="task_delete">삭제</string>
+    <string name="task_add">추가</string>
+
 </resources>

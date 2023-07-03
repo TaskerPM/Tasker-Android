@@ -2,6 +2,7 @@ package com.tasker.android.home.presentation.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tasker.android.home.model.HomeTaskData
 import com.tasker.android.home.model.HomeWeeklyCalendarData
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -24,6 +25,9 @@ class HomeViewModel : ViewModel() {
 
     private val _datePickerList = MutableStateFlow<List<HomeWeeklyCalendarData>>(emptyList())
     val datePickerList: StateFlow<List<HomeWeeklyCalendarData>> = _datePickerList
+
+    private val _taskList = MutableStateFlow<List<HomeTaskData>>(mutableListOf())
+    val taskList: StateFlow<List<HomeTaskData>> = _taskList
 
     fun selectDate(day: HomeWeeklyCalendarData) {
         viewModelScope.launch {
@@ -59,6 +63,88 @@ class HomeViewModel : ViewModel() {
 
             _datePickerList.emit(list)
         }
+    }
 
+    fun setTaskListDummyData() {
+        viewModelScope.launch {
+            val list = mutableListOf<HomeTaskData>()
+            val today = LocalDate.now()
+
+            list.add(
+                HomeTaskData(
+                    "IA 구조도 그리기",
+                    false,
+                    true,
+                    "스터디",
+                    "14:00-17:00",
+                    today.year,
+                    today.monthValue,
+                    today.dayOfMonth
+                )
+            )
+            list.add(
+                HomeTaskData(
+                    "와이어프레임 제작-lofi",
+                    false,
+                    false,
+                    "",
+                    "",
+                    today.year,
+                    today.monthValue,
+                    today.dayOfMonth
+                )
+            )
+            list.add(
+                HomeTaskData(
+                    "IA 구조도 그리기",
+                    true,
+                    true,
+                    "스터디",
+                    "14:00-17:00",
+                    today.year,
+                    today.monthValue,
+                    today.dayOfMonth
+                )
+            )
+            list.add(
+                HomeTaskData(
+                    "와이어프레임 제작-lofi",
+                    true,
+                    false,
+                    "",
+                    "",
+                    today.year,
+                    today.monthValue,
+                    today.dayOfMonth
+                )
+            )
+
+            _taskList.emit(list)
+        }
+    }
+
+    fun addTask(text: String) {
+        viewModelScope.launch {
+            val selectedDate = _selectedDate.value
+            val list = _taskList.value.toMutableList()
+            list.add(
+                HomeTaskData(
+                    text = text,
+                    year = selectedDate.year,
+                    month = selectedDate.month,
+                    day = selectedDate.day
+                )
+            )
+
+            _taskList.emit(list)
+        }
+    }
+
+    fun removeTask(task: HomeTaskData) {
+        viewModelScope.launch {
+            val updatedList = _taskList.value.toMutableList()
+            updatedList.remove(task)
+            _taskList.emit(updatedList)
+        }
     }
 }
