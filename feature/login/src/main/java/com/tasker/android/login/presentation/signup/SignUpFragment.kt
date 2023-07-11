@@ -31,7 +31,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
         initCollectors()
 
         //temporarily added
-        startMainActivity()
+//        startMainActivity()
     }
 
     private fun initSmsRetriever() {
