@@ -69,4 +69,9 @@ dependencies {
 
     implementation(AndroidX.LIFECYCLE_VIEWMODEL)
     implementation(AndroidX.LIFECYCLE_LIVEDATA)
+
+    implementation(SquareUp.OKHTTP3)
+    implementation(SquareUp.OKHTTP3_INTERCEPTOR)
+    implementation(SquareUp.RETROFIT2)
+    implementation(SquareUp.GSON_CONVERTER)
 }

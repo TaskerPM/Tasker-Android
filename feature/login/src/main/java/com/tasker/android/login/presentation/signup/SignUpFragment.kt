@@ -29,9 +29,6 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
 //        initSmsRetriever()
         initComponentFunction()
         initCollectors()
-
-        //temporarily added
-//        startMainActivity()
     }
 
     private fun initSmsRetriever() {
@@ -56,6 +53,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
             }
 
             btnSignupStart.setOnClickListener {
+                viewModel!!.loginSignup(binding.etSignupPhoneNumber.text.toString())
                 startMainActivity()
             }
         }

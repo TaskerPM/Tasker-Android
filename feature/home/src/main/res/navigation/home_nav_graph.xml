@@ -29,8 +29,8 @@
         android:label="fragment_home_detail_page"
         tools:layout="@layout/fragment_home_detail_page">
         <argument
-            android:name="taskData"
-            app:argType="com.tasker.android.home.model.HomeTaskData" />
+            android:name="localTaskData"
+            app:argType="com.tasker.android.common.model.room.LocalTask" />
     </fragment>
 
 </navigation>

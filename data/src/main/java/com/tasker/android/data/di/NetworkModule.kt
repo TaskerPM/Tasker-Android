@@ -8,15 +8,13 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.time.Duration
-import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
 
-    private const val SERVER_BASE_URL = "https://dev.taskerpm.shop"
+    private const val SERVER_BASE_URL = "http://3.39.59.144:9000"
 
     @Provides
     @Singleton

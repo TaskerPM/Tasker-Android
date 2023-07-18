@@ -1,4 +1,4 @@
-package com.tasker.android.common.model.task.res
+package com.tasker.android.common.model.server.task.res
 
 data class GetTaskRes(
     val categoryColorBack: String,

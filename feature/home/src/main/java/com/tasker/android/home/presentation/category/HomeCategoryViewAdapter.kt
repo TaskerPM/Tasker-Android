@@ -168,14 +168,14 @@ class HomeCategoryViewAdapter(
 
         fun bind(data: HomeTaskData) {
             binding.apply {
-                taskData = data
-                homeTaskDesignHelper.applyDesign(data)
-
-                clHomeTask.setOnClickListener {
-                    navigateToDetailPage(adapterPosition)
-                }
-
-                binding.tvHomeTaskTagCategory.visibility = View.GONE
+//                taskData = data
+//                homeTaskDesignHelper.applyDesign(data)
+//
+//                clHomeTask.setOnClickListener {
+//                    navigateToDetailPage(adapterPosition)
+//                }
+//
+//                binding.tvHomeTaskTagCategory.visibility = View.GONE
             }
         }
     }

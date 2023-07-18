@@ -6,6 +6,7 @@ import com.tasker.android.home.databinding.ItemHomeListViewBinding
 import com.tasker.android.home.model.HomeTaskData
 import android.content.Context
 import android.view.View
+import com.tasker.android.common.model.room.LocalTask
 import com.tasker.android.common.util.applyDrawableTintColor
 import com.tasker.android.home.R
 
@@ -15,15 +16,15 @@ class HomeTaskDesignHelper(
 
     lateinit var context: Context
 
-    fun applyDesign(data: HomeTaskData) {
+    fun applyDesign(data: LocalTask) {
         context = binding.root.context
         binding.apply {
-            tvHomeTaskText.text = data.text
+            tvHomeTaskText.text = data.title
 
-            applyCompletedDesign(isCompleted = data.isCompleted)
-            applyCategoryTagDesign(isCompleted = data.isCompleted, data = data)
-            applyTimeTagDesign(isCompleted = data.isCompleted, data = data)
-            applyFilledDesign(data.isFilled)
+//            applyCompletedDesign(isCompleted = data.isCompleted)
+//            applyCategoryTagDesign(isCompleted = data.isCompleted, data = data)
+//            applyTimeTagDesign(isCompleted = data.isCompleted, data = data)
+//            applyFilledDesign(data.isFilled)
         }
     }
 

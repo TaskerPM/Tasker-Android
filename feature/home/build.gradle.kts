@@ -2,6 +2,8 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id ("androidx.navigation.safeargs.kotlin")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
     id ("kotlin-parcelize")
 }
 
@@ -44,6 +46,7 @@ android {
 dependencies {
 
     implementation(project(":common"))
+    implementation(project(":domain"))
 
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
@@ -53,9 +56,19 @@ dependencies {
     androidTestImplementation(AndroidTest.EXT_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
 
+    implementation(AndroidX.LIFECYCLE_VIEWMODEL)
+
     implementation(AndroidX.NAVIGATION_RUNTIME)
     implementation(AndroidX.NAVIGATION_FRAGMENT)
     implementation(AndroidX.NAVIGATION_UI)
 
     coreLibraryDesugaring(Android.DESUGAR)
+
+    implementation(Google.HILT)
+    kapt(Google.HILT_COMPILER)
+
+    implementation(SquareUp.OKHTTP3_INTERCEPTOR)
+    implementation(SquareUp.RETROFIT2)
+    implementation(SquareUp.OKHTTP3)
+    implementation(SquareUp.GSON_CONVERTER)
 }

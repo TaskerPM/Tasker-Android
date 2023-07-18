@@ -1,4 +1,4 @@
-package com.tasker.android.common.model
+package com.tasker.android.common.model.server
 
 data class ApplicationResponse<T>(
     val code: String,
