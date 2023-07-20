@@ -38,6 +38,7 @@ android {
 dependencies {
 
     implementation(project(":common"))
+    implementation(project(":domain"))
 
     implementation(AndroidX.CORE)
     implementation(AndroidX.APP_COMPAT)
@@ -54,4 +55,9 @@ dependencies {
     implementation(SquareUp.OKHTTP3_INTERCEPTOR)
     implementation(SquareUp.RETROFIT2)
     implementation(SquareUp.GSON_CONVERTER)
+
+    implementation(AndroidX.ROOM_RUNTIME)
+    kapt(AndroidX.ROOM_COMPILER)
+    implementation(AndroidX.ROOM_KTX)
+
 }

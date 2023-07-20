@@ -19,9 +19,10 @@ import com.tasker.android.home.databinding.FragmentHomeListViewBinding
 import com.tasker.android.home.presentation.main.HomeFragmentDirections
 import com.tasker.android.home.presentation.main.HomeViewModel
 import com.tasker.android.home.util.SwipeController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class HomeListViewFragment :
     BaseFragment<FragmentHomeListViewBinding>(R.layout.fragment_home_list_view) {
 
@@ -53,7 +54,7 @@ class HomeListViewFragment :
             itemTouchHelper.attachToRecyclerView(this)
         }
 
-        viewModel.initTaskList(homeViewModel.selectedDate.value, homeViewModel.taskList.value)
+        viewModel.initTaskList(homeViewModel.selectedDate.value)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -68,7 +69,7 @@ class HomeListViewFragment :
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 homeViewModel.selectedDate.collect {
-                    viewModel.initTaskList(it, homeViewModel.taskList.value)
+                    viewModel.initTaskList(it)
                 }
             }
         }
@@ -120,7 +121,7 @@ class HomeListViewFragment :
 
     private fun addNewTask(text: String) {
         if (text.isNotBlank()) {
-            viewModel.addTask(text)
+            viewModel.addTask(text, homeViewModel.selectedDate.value)
         }
     }
 

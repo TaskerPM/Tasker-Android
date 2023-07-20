@@ -5,26 +5,26 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.tasker.android.common.model.room.LocalTask
 import com.tasker.android.home.databinding.ItemHomeListViewBinding
-import com.tasker.android.home.model.HomeTaskData
 import com.tasker.android.home.util.HomeTaskDesignHelper
 
 class HomeListViewAdapter(
     private val navigateToDetailPage: (Int) -> Unit,
 ) :
-    ListAdapter<HomeTaskData, HomeListViewAdapter.HomeListViewHolder>(HomeListViewDiffUtil()) {
+    ListAdapter<LocalTask, HomeListViewAdapter.HomeListViewHolder>(HomeListViewDiffUtil()) {
 
     private lateinit var binding: ItemHomeListViewBinding
     private lateinit var homeTaskDesignHelper: HomeTaskDesignHelper
 
-    private class HomeListViewDiffUtil : DiffUtil.ItemCallback<HomeTaskData>() {
+    private class HomeListViewDiffUtil : DiffUtil.ItemCallback<LocalTask>() {
         override fun areItemsTheSame(
-            oldItem: HomeTaskData, newItem: HomeTaskData,
+            oldItem: LocalTask, newItem: LocalTask,
         ): Boolean = oldItem == newItem
 
 
         override fun areContentsTheSame(
-            oldItem: HomeTaskData, newItem: HomeTaskData,
+            oldItem: LocalTask, newItem: LocalTask,
         ): Boolean = oldItem == newItem
     }
 
@@ -42,9 +42,9 @@ class HomeListViewAdapter(
 
     inner class HomeListViewHolder : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: HomeTaskData) {
+        fun bind(data: LocalTask) {
             binding.apply {
-                taskData = data
+                localTaskData = data
                 homeTaskDesignHelper.applyDesign(data)
 
                 clHomeTask.setOnClickListener {

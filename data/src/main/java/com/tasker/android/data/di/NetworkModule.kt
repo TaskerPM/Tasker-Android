@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
 
-    private const val SERVER_BASE_URL = "https://dev.taskerpm.shop"
+    private const val SERVER_BASE_URL = "http://3.39.59.144:9000"
 
     @Provides
     @Singleton

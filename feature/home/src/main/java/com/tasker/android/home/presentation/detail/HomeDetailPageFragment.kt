@@ -85,7 +85,7 @@ class HomeDetailPageFragment :
     }
 
     private fun initTaskData() {
-        viewModel.selectTask(navArgs.taskData)
+//        viewModel.selectTask(navArgs.taskData)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

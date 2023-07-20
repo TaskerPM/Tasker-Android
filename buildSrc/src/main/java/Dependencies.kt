@@ -9,6 +9,10 @@ object AndroidX {
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:2.5.3"
     const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     const val LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+    const val ROOM_RUNTIME = "androidx.room:room-runtime:2.5.2"
+    const val ROOM_COMPILER = "androidx.room:room-compiler:2.5.2"
+    const val ROOM_KTX = "androidx.room:room-ktx:2.5.2"
+
 }
 
 object Google {

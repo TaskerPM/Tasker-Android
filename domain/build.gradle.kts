@@ -35,7 +35,6 @@ android {
 
 dependencies {
 
-    implementation(project(":data"))
     implementation(project(":common"))
 
     implementation(AndroidX.CORE)
@@ -47,5 +46,10 @@ dependencies {
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
 
     implementation(inject)
+
+    implementation(SquareUp.OKHTTP3)
+    implementation(SquareUp.OKHTTP3_INTERCEPTOR)
+    implementation(SquareUp.RETROFIT2)
+    implementation(SquareUp.GSON_CONVERTER)
 
 }

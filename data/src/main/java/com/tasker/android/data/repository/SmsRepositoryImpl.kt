@@ -1,8 +1,9 @@
 package com.tasker.android.data.repository
 
-import com.tasker.android.common.model.sms.SmsSendRequest
-import com.tasker.android.common.model.sms.SmsSendResponse
+import com.tasker.android.common.model.server.sms.SmsSendRequest
+import com.tasker.android.common.model.server.sms.SmsSendResponse
 import com.tasker.android.data.api.ServerApi
+import com.tasker.android.domain.repository.SmsRepository
 import javax.inject.Inject
 
 class SmsRepositoryImpl @Inject constructor(
