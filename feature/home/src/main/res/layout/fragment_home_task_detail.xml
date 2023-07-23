@@ -74,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:background="@drawable/background_home_task_tag"
+                        android:background="@drawable/bg_mian_list_task_tag"
                         android:fontFamily="@font/font_pretendard_regular_400"
                         android:lineHeight="14sp"
                         android:padding="6dp"
@@ -105,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:background="@drawable/background_home_task_tag"
+                        android:background="@drawable/bg_mian_list_task_tag"
                         android:fontFamily="@font/font_pretendard_regular_400"
                         android:lineHeight="14sp"
                         android:padding="6dp"
@@ -159,7 +159,7 @@
                 android:id="@+id/iv_home_task_detail_add_note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_home_add_note"
+                android:src="@drawable/ic_detail_add_note"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

@@ -32,7 +32,7 @@ class HomeTaskDesignHelper(
         binding.apply {
             when (isCompleted) {
                 true -> {
-                    ivHomeTaskIsCompleted.setImageResource(R.drawable.icon_home_task_completed)
+                    ivHomeTaskIsCompleted.setImageResource(R.drawable.ic_main_task_completed)
                     vHomeTaskIsCompleted.visibility = View.VISIBLE
                     tvHomeTaskText.setTextColor(
                         getColorFrom(
@@ -42,7 +42,7 @@ class HomeTaskDesignHelper(
                     )
                 }
                 false -> {
-                    ivHomeTaskIsCompleted.setImageResource(R.drawable.icon_home_task_uncompleted)
+                    ivHomeTaskIsCompleted.setImageResource(R.drawable.ic_main_task_uncompleted)
                     vHomeTaskIsCompleted.visibility = View.GONE
                     tvHomeTaskText.setTextColor(
                         getColorFrom(
@@ -136,14 +136,14 @@ class HomeTaskDesignHelper(
                 binding.clHomeTask.background =
                     getDrawableFrom(
                         context,
-                        R.drawable.background_item_home_task_filled
+                        R.drawable.bg_item_home_task_filled
                     )
             }
             false -> {
                 binding.clHomeTask.background =
                     getDrawableFrom(
                         context,
-                        R.drawable.background_item_home_task_unfilled
+                        R.drawable.bg_item_home_task_unfilled
                     )
             }
         }

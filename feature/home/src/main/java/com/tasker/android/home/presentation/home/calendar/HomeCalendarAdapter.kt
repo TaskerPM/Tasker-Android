@@ -194,7 +194,7 @@ class HomeCalendarAdapter(
             if (index == selectedItemPosition) {
                 binding.tvHomeCalendarDate.apply {
                     this.background =
-                        getDrawableFrom(context, R.drawable.background_home_calendar_selected)
+                        getDrawableFrom(context, R.drawable.bg_calendar_selected)
 
                     this.setTextColor(
                         getColorFrom(context, com.tasker.android.common.R.color.white)

@@ -5,6 +5,6 @@
             <solid android:color="@color/purple_bg" />
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_home_category_check"
+    <item android:drawable="@drawable/ic_category_check"
         android:gravity="center" />
 </layer-list>

@@ -84,13 +84,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         TabLayoutMediator(binding.tlHomeViewType, binding.vpHomeTaskView) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.setIcon(R.drawable.icon_home_list_selector)
+                    tab.setIcon(R.drawable.ic_main_list_selector)
                 }
                 1 -> {
-                    tab.setIcon(R.drawable.icon_home_time_selector)
+                    tab.setIcon(R.drawable.ic_main_time_selector)
                 }
                 2 -> {
-                    tab.setIcon(R.drawable.icon_home_category_selector)
+                    tab.setIcon(R.drawable.ic_main_category_selector)
                 }
             }
         }.attach()

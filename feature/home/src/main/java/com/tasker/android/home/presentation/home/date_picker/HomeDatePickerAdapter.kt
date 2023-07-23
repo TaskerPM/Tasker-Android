@@ -109,7 +109,7 @@ class HomeDatePickerAdapter(private val selectDate: (Int, Int, Int) -> Unit) :
 
                         clHomeDatePicker.background = getDrawableFrom(
                             context,
-                            R.drawable.background_item_home_date_picker_selected
+                            R.drawable.bg_item_home_date_picker_selected
                         )
                     }
 
