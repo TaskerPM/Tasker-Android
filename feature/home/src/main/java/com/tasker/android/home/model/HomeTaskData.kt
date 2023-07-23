@@ -5,9 +5,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class HomeTaskData(
-    val text: String,
+    var text: String = "",
     val isCompleted: Boolean = false,
     val isFilled: Boolean = false,
     val categoryTag: String = "",
     val timeTag: String = "",
+    val year: Int = 0,
+    val month: Int = 0,
+    val day: Int = 0,
 ) : Parcelable

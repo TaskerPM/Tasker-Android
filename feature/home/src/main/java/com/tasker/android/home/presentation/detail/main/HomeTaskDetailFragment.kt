@@ -91,9 +91,9 @@ class HomeTaskDetailFragment :
                 true -> {
                     itemHomeTaskDetailNote.root.visibility = View.VISIBLE
                     itemHomeTaskDetailNote.etNoteContent.requestFocus()
+                    requestKeyboardFocus(itemHomeTaskDetailNote.etNoteContent)
                     if (isFocus) {
                         requestKeyboardFocus(
-                            requireActivity(),
                             itemHomeTaskDetailNote.etNoteContent
                         )
                     }
@@ -126,7 +126,7 @@ class HomeTaskDetailFragment :
     }
 
     private fun initTaskData() {
-        viewModel.selectTask(navArgs.taskData)
+//        viewModel.selectTask(navArgs.taskData)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

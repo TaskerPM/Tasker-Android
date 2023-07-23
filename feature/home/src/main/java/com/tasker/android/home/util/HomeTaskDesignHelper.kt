@@ -6,22 +6,25 @@ import com.tasker.android.home.databinding.ItemHomeListViewBinding
 import com.tasker.android.home.model.HomeTaskData
 import android.content.Context
 import android.view.View
+import com.tasker.android.common.model.room.LocalTask
 import com.tasker.android.common.util.applyDrawableTintColor
 import com.tasker.android.home.R
 
 class HomeTaskDesignHelper(
-    private val context: Context,
     private val binding: ItemHomeListViewBinding,
 ) {
 
-    fun applyDesign(data: HomeTaskData) {
-        binding.apply {
-            tvHomeTaskText.text = data.text
+    lateinit var context: Context
 
-            applyCompletedDesign(isCompleted = data.isCompleted)
-            applyCategoryTagDesign(isCompleted = data.isCompleted, data = data)
-            applyTimeTagDesign(isCompleted = data.isCompleted, data = data)
-            applyFilledDesign(data.isFilled)
+    fun applyDesign(data: LocalTask) {
+        context = binding.root.context
+        binding.apply {
+            tvHomeTaskText.text = data.title
+
+//            applyCompletedDesign(isCompleted = data.isCompleted)
+//            applyCategoryTagDesign(isCompleted = data.isCompleted, data = data)
+//            applyTimeTagDesign(isCompleted = data.isCompleted, data = data)
+//            applyFilledDesign(data.isFilled)
         }
     }
 
@@ -57,13 +60,13 @@ class HomeTaskDesignHelper(
             if (data.categoryTag.isNotEmpty()) {
                 when (isCompleted) {
                     true -> {
-                        this.text = data.categoryTag
+                        text = data.categoryTag
                         applyDrawableTintColor(
                             context,
-                            this.background,
+                            background,
                             com.tasker.android.common.R.color.gray_30
                         )
-                        this.setTextColor(
+                        setTextColor(
                             getColorFrom(
                                 context,
                                 com.tasker.android.common.R.color.gray_230
@@ -71,13 +74,13 @@ class HomeTaskDesignHelper(
                         )
                     }
                     false -> {
-                        this.text = data.categoryTag
+                        text = data.categoryTag
                         applyDrawableTintColor(
                             context,
-                            this.background,
+                            background,
                             com.tasker.android.common.R.color.temp_tag_category
                         )
-                        this.setTextColor(
+                        setTextColor(
                             getColorFrom(
                                 context,
                                 com.tasker.android.common.R.color.temp_tag_text_category
@@ -94,13 +97,13 @@ class HomeTaskDesignHelper(
             if (data.timeTag.isNotEmpty()) {
                 when (isCompleted) {
                     true -> {
-                        this.text = data.timeTag
+                        text = data.timeTag
                         applyDrawableTintColor(
                             context,
-                            this.background,
+                            background,
                             com.tasker.android.common.R.color.gray_30
                         )
-                        this.setTextColor(
+                        setTextColor(
                             getColorFrom(
                                 context,
                                 com.tasker.android.common.R.color.gray_230
@@ -108,13 +111,13 @@ class HomeTaskDesignHelper(
                         )
                     }
                     false -> {
-                        this.text = data.timeTag
+                        text = data.timeTag
                         applyDrawableTintColor(
                             context,
-                            this.background,
+                            background,
                             com.tasker.android.common.R.color.temp_tag_time
                         )
-                        this.setTextColor(
+                        setTextColor(
                             getColorFrom(
                                 context,
                                 com.tasker.android.common.R.color.temp_tag_text_time

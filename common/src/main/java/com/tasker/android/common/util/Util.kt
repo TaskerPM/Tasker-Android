@@ -1,8 +1,11 @@
 package com.tasker.android.common.util
 
-import android.app.Activity
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
+import android.view.MotionEvent
+import android.view.View.OnTouchListener
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.ColorRes
@@ -41,14 +44,35 @@ fun getDayOfWeekShortString(weekDay: Int): String {
     return dayOfEnum.getDisplayName(TextStyle.SHORT, Locale("ko", "KR"))
 }
 
-fun requestKeyboardFocus(activity: Activity, editText: EditText) {
+fun requestKeyboardFocus(editText: EditText) {
     val imm =
-        activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.showSoftInput(editText, 0)
 }
 
-fun clearKeyboardFocus(activity: Activity, editText: EditText) {
+fun clearKeyboardFocus(editText: EditText) {
     val imm: InputMethodManager =
-        activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(editText.windowToken, 0)
+}
+
+@SuppressLint("ClickableViewAccessibility")
+fun getTouchOutListener(editText: EditText, onTouchOut : () -> Unit): OnTouchListener {
+    val onTouchOutListener = OnTouchListener { _, event ->
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val x = event.x.toInt()
+            val y = event.y.toInt()
+            val editTextRect = Rect()
+            editText.getGlobalVisibleRect(editTextRect)
+            if (!editTextRect.contains(x, y)) {
+                editText.clearFocus()
+                onTouchOut()
+                editText.text?.clear()
+                clearKeyboardFocus(editText)
+            }
+        }
+        false
+    }
+
+    return onTouchOutListener
 }

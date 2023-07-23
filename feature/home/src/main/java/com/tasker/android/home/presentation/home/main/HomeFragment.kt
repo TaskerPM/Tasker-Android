@@ -26,6 +26,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         initDatePicker()
         initTaskViewPager()
         initComponentFunction()
+
+        viewModel.setTaskListDummyData()
     }
 
     private fun initDatePicker() {
@@ -68,6 +70,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initTaskViewPager() {
         binding.vpHomeTaskView.adapter = HomeTaskViewAdapter(this)
         binding.vpHomeTaskView.isUserInputEnabled = false
+
+        initTapLayout()
+    }
+
+    private fun initComponentFunction() {
+        binding.ivHomeCalendar.setOnClickListener {
+            findNavController().navigate(R.id.navigate_homeFragment_to_homeCalendarBottomSheetFragment)
+        }
+    }
+
+    private fun initTapLayout() {
         TabLayoutMediator(binding.tlHomeViewType, binding.vpHomeTaskView) { tab, position ->
             when (position) {
                 0 -> {
@@ -83,12 +96,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }.attach()
     }
 
-
-    private fun initComponentFunction() {
-        binding.ivHomeCalendar.setOnClickListener {
-            findNavController().navigate(R.id.navigate_homeFragment_to_homeCalendarBottomSheetFragment)
-        }
-    }
 
     private fun selectDate(year: Int, month: Int, day: Int) {
         viewModel.selectDate(HomeWeeklyCalendarData(year, month, day, true))

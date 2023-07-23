@@ -1,27 +1,38 @@
 package com.tasker.android.home.presentation.home.list_view
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.tasker.android.common.model.room.LocalTask
 import com.tasker.android.home.databinding.ItemHomeListViewBinding
-import com.tasker.android.home.model.HomeTaskData
 import com.tasker.android.home.util.HomeTaskDesignHelper
 
-class HomeListViewAdapter(private val navigateToDetailPage: (Int) -> Unit) :
-    ListAdapter<HomeTaskData, HomeListViewAdapter.HomeListViewHolder>(HomeListViewDiffUtil()) {
+class HomeListViewAdapter(
+    private val navigateToDetailPage: (Int) -> Unit,
+) :
+    ListAdapter<LocalTask, HomeListViewAdapter.HomeListViewHolder>(HomeListViewDiffUtil()) {
 
-    lateinit var context: Context
+    private lateinit var binding: ItemHomeListViewBinding
+    private lateinit var homeTaskDesignHelper: HomeTaskDesignHelper
+
+    private class HomeListViewDiffUtil : DiffUtil.ItemCallback<LocalTask>() {
+        override fun areItemsTheSame(
+            oldItem: LocalTask, newItem: LocalTask,
+        ): Boolean = oldItem == newItem
+
+
+        override fun areContentsTheSame(
+            oldItem: LocalTask, newItem: LocalTask,
+        ): Boolean = oldItem == newItem
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeListViewHolder {
-
-        context = parent.context
-
-        return HomeListViewHolder(
+        binding =
             ItemHomeListViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+        homeTaskDesignHelper = HomeTaskDesignHelper(binding)
+        return HomeListViewHolder()
     }
 
 
@@ -29,31 +40,17 @@ class HomeListViewAdapter(private val navigateToDetailPage: (Int) -> Unit) :
         holder.bind(currentList[position])
     }
 
-    inner class HomeListViewHolder(private val binding: ItemHomeListViewBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class HomeListViewHolder : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: HomeTaskData) {
+        fun bind(data: LocalTask) {
             binding.apply {
-                tvHomeTaskText.text = data.text
+                localTaskData = data
+                homeTaskDesignHelper.applyDesign(data)
 
-                val homeTaskDesignHelper = HomeTaskDesignHelper(context, binding = binding)
-                homeTaskDesignHelper.applyDesign(data = data)
-
-                root.setOnClickListener {
+                clHomeTask.setOnClickListener {
                     navigateToDetailPage(adapterPosition)
                 }
             }
         }
-    }
-
-    private class HomeListViewDiffUtil : DiffUtil.ItemCallback<HomeTaskData>() {
-        override fun areItemsTheSame(
-            oldItem: HomeTaskData, newItem: HomeTaskData,
-        ): Boolean = oldItem == newItem
-
-
-        override fun areContentsTheSame(
-            oldItem: HomeTaskData, newItem: HomeTaskData,
-        ): Boolean = oldItem == newItem
     }
 }

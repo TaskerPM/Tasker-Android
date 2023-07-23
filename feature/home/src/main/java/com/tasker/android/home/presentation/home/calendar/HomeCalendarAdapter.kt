@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.home.calendar_view
+package com.tasker.android.home.presentation.home.calendar
 
 import android.annotation.SuppressLint
 import android.content.Context

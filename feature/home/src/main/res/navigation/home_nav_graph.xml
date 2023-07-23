@@ -20,7 +20,7 @@
 
     <dialog
         android:id="@+id/homeCalendarBottomSheetFragment"
-        android:name="com.tasker.android.home.presentation.home.calendar_view.HomeCalendarBottomSheetFragment"
+        android:name="com.tasker.android.home.presentation.home.calendar.HomeCalendarBottomSheetFragment"
         android:label="fragment_home_calendar_bottom_sheet"
         tools:layout="@layout/fragment_home_calendar_bottom_sheet" />
     <fragment
@@ -29,8 +29,8 @@
         android:label="fragment_home_task_detail_page"
         tools:layout="@layout/fragment_home_task_detail">
         <argument
-            android:name="taskData"
-            app:argType="com.tasker.android.home.model.HomeTaskData" />
+            android:name="localTaskData"
+            app:argType="com.tasker.android.common.model.room.LocalTask" />
         <action
             android:id="@+id/action_homeDetailPageFragment_to_homeCategoryFragment"
             app:destination="@id/homeCategoryFragment" />

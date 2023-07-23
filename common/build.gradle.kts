@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -55,5 +56,8 @@ dependencies {
     kapt(Google.HILT_COMPILER)
 
     coreLibraryDesugaring(Android.DESUGAR)
+
+    implementation(AndroidX.ROOM_RUNTIME)
+    kapt(AndroidX.ROOM_COMPILER)
 
 }

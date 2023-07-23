@@ -3,10 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="localTaskData"
+            type="com.tasker.android.common.model.room.LocalTask" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_home_task"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_home_task_is_completed"
@@ -28,6 +36,7 @@
             android:layout_marginStart="8dp"
             android:fontFamily="@font/font_pretendard_regular_400"
             android:lineHeight="16sp"
+            android:text="@{localTaskData.title}"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_home_task_is_completed"
@@ -41,8 +50,8 @@
             android:layout_marginEnd="8dp"
             android:background="@color/gray_200"
             android:elevation="1dp"
-            android:visibility="gone"
             android:outlineProvider="none"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_home_task_is_completed"
@@ -78,7 +87,5 @@
             app:layout_constraintEnd_toStartOf="@id/tv_home_task_tag_time"
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="p" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

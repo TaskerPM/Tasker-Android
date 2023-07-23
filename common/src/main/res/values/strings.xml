@@ -5,6 +5,10 @@
     <string name="note_title">Note.</string>
     <string name="note_hint">"노트를 작성하세요"</string>
 
+    <!-- Task Item -->
+    <string name="task_delete">삭제</string>
+    <string name="task_add">추가</string>
+
     <!-- Confirmation Dialog -->
     <string name="confirmation_dialog_overlap_title">다른 테스크와 시간이 겹칩니다.\n시간을 다시 설정해주세요.</string>
     <string name="confirmation_dialog_confirm">확인</string>
