@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.category.add.HomeCategoryAddFragment">
+
+        <include
+            android:id="@+id/tb_home_category_add"
+            layout="@layout/default_toolbar" />
+
+        <TextView
+            android:id="@+id/tv_home_category_add_category_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/font_pretendard_semibold_600"
+            android:text="@string/home_category_add_name_label"
+            android:textColor="@color/black_basic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_home_category_add" />
+
+        <EditText
+            android:id="@+id/et_home_category_add_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:height="48dp"
+            android:background="@drawable/bg_home_category_box_border"
+            android:importantForAutofill="no"
+            android:padding="16dp"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_category_add_category_label" />
+
+        <TextView
+            android:id="@+id/tv_home_category_add_color_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/font_pretendard_semibold_600"
+            android:text="@string/home_category_add_color_label"
+            android:textColor="@color/black_basic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_home_category_add_name" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_category_add_color_label">
+
+            <RadioButton
+                android:id="@+id/home_category_add_rbtn_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="32dp"
+                android:height="32dp"
+                android:background="@drawable/selector_category_button_red"
+                android:button="@null"
+                android:paddingVertical="10dp" />
+
+            <RadioButton
+                android:id="@+id/home_category_add_rbtn_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="32dp"
+                android:height="32dp"
+                android:background="@drawable/selector_category_button_orange"
+                android:button="@null"
+                android:paddingVertical="10dp" />
+
+            <RadioButton
+                android:id="@+id/home_category_add_rbtn_yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="32dp"
+                android:height="32dp"
+                android:background="@drawable/selector_category_button_yellow"
+                android:button="@null"
+                android:paddingVertical="10dp" />
+
+            <RadioButton
+                android:id="@+id/home_category_add_rbtn_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="32dp"
+                android:height="32dp"
+                android:background="@drawable/selector_category_button_green"
+                android:button="@null"
+                android:paddingVertical="10dp" />
+
+            <RadioButton
+                android:id="@+id/home_category_add_rbtn_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="32dp"
+                android:height="32dp"
+                android:background="@drawable/selector_category_button_blue"
+                android:button="@null"
+                android:paddingVertical="10dp" />
+
+            <RadioButton
+                android:id="@+id/home_category_add_rbtn_purple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="32dp"
+                android:height="32dp"
+                android:background="@drawable/selector_category_button_purple"
+                android:button="@null"
+                android:paddingVertical="10dp" />
+
+            <RadioButton
+                android:id="@+id/home_category_add_rbtn_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="32dp"
+                android:height="32dp"
+                android:background="@drawable/selector_category_button_black"
+                android:button="@null"
+                android:paddingVertical="10dp" />
+
+            <!-- 추가적으로 필요한 라디오 버튼들을 여기에 추가 -->
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

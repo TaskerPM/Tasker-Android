@@ -3,4 +3,16 @@
     
     <!-- Note -->
     <string name="note_title">Note.</string>
+    <string name="note_hint">"노트를 작성하세요"</string>
+
+    <!-- Confirmation Dialog -->
+    <string name="confirmation_dialog_overlap_title">다른 테스크와 시간이 겹칩니다.\n시간을 다시 설정해주세요.</string>
+    <string name="confirmation_dialog_confirm">확인</string>
+
+    <!-- Button Choice Dialog -->
+    <string name="button_choice_dialog_title">저장되지 않았습니다</string>
+    <string name="button_choice_dialog_subtitle">뒤로 갈 경우, 작성 중인 내용이 삭제됩니다.</string>
+    <string name="button_choice_dialog_save">저장하기</string>
+    <string name="button_choice_dialog_go_back">뒤로가기</string>
+
 </resources>
