@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.dialog
+package com.tasker.android.common.dialog
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import com.tasker.android.home.R
-import com.tasker.android.home.databinding.DialogUnsavedChangesBinding
+import com.tasker.android.common.R
+import com.tasker.android.common.databinding.DialogConfirmationBinding
 
-class UnsavedChangesDialog : DialogFragment() {
+class ConfirmationDialog(private val title: String) : DialogFragment() {
 
-    private lateinit var binding: DialogUnsavedChangesBinding
+    private lateinit var binding: DialogConfirmationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +23,7 @@ class UnsavedChangesDialog : DialogFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.dialog_unsaved_changes,
+            R.layout.dialog_confirmation,
             container,
             false
         )
@@ -32,32 +32,30 @@ class UnsavedChangesDialog : DialogFragment() {
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
 
         initDialog()
+        setDialogTitle()
         return binding.root
     }
 
-    fun initDialog() {
-        binding.tvDialogSave.setOnClickListener {
-            buttonClickListener.onSaveBtnClicked()
-            dismiss()
-        }
+    fun setDialogTitle() {
+        binding.tvConfirmationDialogTitle.text = title
+    }
 
-        binding.tvDialogBack.setOnClickListener {
-            buttonClickListener.onBackBtnClicked()
+    fun initDialog() {
+        binding.tvConfirmationDialogConfirm.setOnClickListener {
+            buttonClickListener.onConfirmBtnClicked()
             dismiss()
         }
     }
 
     interface OnButtonClickListener {
-        fun onSaveBtnClicked()
-        fun onBackBtnClicked()
+        fun onConfirmBtnClicked()
     }
 
-    // 클릭 이벤트 설정
     fun setButtonClickListener(buttonClickListener: OnButtonClickListener) {
         this.buttonClickListener = buttonClickListener
     }
 
-    // 클릭 이벤트 실행
+
     private lateinit var buttonClickListener: OnButtonClickListener
 
 }

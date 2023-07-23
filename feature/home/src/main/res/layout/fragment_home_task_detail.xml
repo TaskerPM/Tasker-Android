@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.detail.HomeDetailPageFragment">
+    tools:context=".presentation.detail.main.HomeTaskDetailFragment">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.tasker.android.home.presentation.detail.HomeDetailPageViewModel" />
+            type="com.tasker.android.home.presentation.detail.main.HomeTaskDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,9 +20,10 @@
             layout="@layout/default_toolbar" />
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/sv_home_detail_page"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/cl_home_detail_page_add_note"
+            app:layout_constraintBottom_toTopOf="@id/cl_home_task_detail_add_note"
             app:layout_constraintTop_toBottomOf="@id/tb_home_detail_page">
 
             <LinearLayout
@@ -37,7 +38,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_home_detail_page_task_name"
+                        android:id="@+id/et_home_task_detail_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -54,7 +55,7 @@
                         tools:targetApi="p" />
 
                     <TextView
-                        android:id="@+id/tv_home_detail_page_category"
+                        android:id="@+id/tv_home_task_detail_category_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -65,11 +66,11 @@
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/et_home_detail_page_task_name"
+                        app:layout_constraintTop_toBottomOf="@id/et_home_task_detail_title"
                         tools:targetApi="p" />
 
                     <TextView
-                        android:id="@+id/tv_home_detail_page_category_tag"
+                        android:id="@+id/tv_home_task_detail_category_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
@@ -78,14 +79,14 @@
                         android:lineHeight="14sp"
                         android:padding="6dp"
                         android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_home_detail_page_category"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_home_task_detail_category_label"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/tv_home_detail_page_category"
+                        app:layout_constraintTop_toTopOf="@id/tv_home_task_detail_category_label"
                         app:layout_goneMarginEnd="4dp"
                         tools:targetApi="p" />
 
                     <TextView
-                        android:id="@+id/tv_home_detail_page_time"
+                        android:id="@+id/tv_home_task_detail_time_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -96,11 +97,11 @@
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_home_detail_page_category"
+                        app:layout_constraintTop_toBottomOf="@id/tv_home_task_detail_category_label"
                         tools:targetApi="p" />
 
                     <TextView
-                        android:id="@+id/tv_home_detail_page_time_tag"
+                        android:id="@+id/tv_home_task_detail_time_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
@@ -109,9 +110,9 @@
                         android:lineHeight="14sp"
                         android:padding="6dp"
                         android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_home_detail_page_time"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_home_task_detail_time_label"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/tv_home_detail_page_time"
+                        app:layout_constraintTop_toTopOf="@id/tv_home_task_detail_time_label"
                         app:layout_goneMarginEnd="4dp"
                         tools:targetApi="p" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -123,7 +124,7 @@
                     android:background="@color/gray_30" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_home_detail_page_note"
+                    android:id="@+id/rv_home_task_detail_note"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -132,7 +133,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
                 <include
-                    android:id="@+id/item_home_detail_page_note"
+                    android:id="@+id/item_home_task_detail_note"
                     layout="@layout/item_note"
                     android:visibility="gone" />
 
@@ -143,10 +144,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/gray_30"
-            app:layout_constraintTop_toTopOf="@id/cl_home_detail_page_add_note" />
+            app:layout_constraintTop_toTopOf="@id/cl_home_task_detail_add_note" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_home_detail_page_add_note"
+            android:id="@+id/cl_home_task_detail_add_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="12dp"
@@ -155,7 +156,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_home_detail_page_add_note"
+                android:id="@+id/iv_home_task_detail_add_note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_home_add_note"
@@ -168,12 +169,12 @@
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/font_pretendard_regular_400"
                 android:lineHeight="17sp"
-                android:text="@string/home_detail_page_add_note"
+                android:text="@string/home_task_detail_add_note"
                 android:textColor="@color/red_basic"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/iv_home_detail_page_add_note"
-                app:layout_constraintStart_toEndOf="@id/iv_home_detail_page_add_note"
-                app:layout_constraintTop_toTopOf="@id/iv_home_detail_page_add_note"
+                app:layout_constraintBottom_toBottomOf="@id/iv_home_task_detail_add_note"
+                app:layout_constraintStart_toEndOf="@id/iv_home_task_detail_add_note"
+                app:layout_constraintTop_toTopOf="@id/iv_home_task_detail_add_note"
                 tools:targetApi="p" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
