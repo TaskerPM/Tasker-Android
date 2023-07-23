@@ -86,6 +86,7 @@ class HomeTaskDetailFragment :
 
     private fun setEditableNote(isEnabled: Boolean, isFocus: Boolean) {
         binding.apply {
+            itemHomeTaskDetailNote.tvNoteContent.visibility = View.GONE
             itemHomeTaskDetailNote.etNoteContent.visibility = View.VISIBLE
             when (isEnabled) {
                 true -> {

@@ -35,7 +35,7 @@
             android:textSize="13sp"
             tools:targetApi="p" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_note_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
