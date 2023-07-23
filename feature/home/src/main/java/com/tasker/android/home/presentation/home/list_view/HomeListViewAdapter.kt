@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.list
+package com.tasker.android.home.presentation.home.list_view
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.date_picker
+package com.tasker.android.home.presentation.home.date_picker
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,7 @@ import com.tasker.android.common.util.getDayOfWeekShortString
 import com.tasker.android.common.util.getDrawableFrom
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.ItemHomeDatePickerBinding
-import com.tasker.android.home.presentation.date_picker.HomeDatePickerAdapter.HomeDatePickerViewHolder
+import com.tasker.android.home.presentation.home.date_picker.HomeDatePickerAdapter.HomeDatePickerViewHolder
 import com.tasker.android.home.model.HomeWeeklyCalendarData
 
 

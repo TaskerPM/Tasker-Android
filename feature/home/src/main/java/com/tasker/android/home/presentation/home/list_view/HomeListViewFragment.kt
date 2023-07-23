@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.list
+package com.tasker.android.home.presentation.home.list_view
 
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -8,7 +8,7 @@ import com.tasker.android.common.util.clearKeyboardFocus
 import com.tasker.android.common.util.requestKeyboardFocus
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeListViewBinding
-import com.tasker.android.home.presentation.main.HomeFragmentDirections
+import com.tasker.android.home.presentation.home.main.HomeFragmentDirections
 
 class HomeListViewFragment :
     BaseFragment<FragmentHomeListViewBinding>(R.layout.fragment_home_list_view) {
@@ -69,7 +69,7 @@ class HomeListViewFragment :
 
     private fun navigateToDetailPage(listIndex: Int) {
         findNavController().navigate(
-            HomeFragmentDirections.actionHomeFragmentToHomeDetailPageFragment(
+            HomeFragmentDirections.actionHomeFragmentToHomeTaskDetailFragment(
                 viewModel.taskList.value[listIndex]
             )
         )

@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.calendar
+package com.tasker.android.home.presentation.home.calendar_view
 
 import android.content.DialogInterface
 import androidx.fragment.app.activityViewModels
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.tasker.android.common.base.BaseBottomSheetDialogFragment
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeCalendarBottomSheetBinding
-import com.tasker.android.home.presentation.main.HomeViewModel
+import com.tasker.android.home.presentation.home.main.HomeViewModel
 import com.tasker.android.home.model.HomeWeeklyCalendarData
 
 class HomeCalendarBottomSheetFragment :

@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.main
+package com.tasker.android.home.presentation.home.main
 
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -9,8 +9,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.tasker.android.common.base.BaseFragment
 import com.tasker.android.home.R
 import com.tasker.android.home.databinding.FragmentHomeBinding
-import com.tasker.android.home.presentation.date_picker.HomeDatePickerAdapter
-import com.tasker.android.home.presentation.date_picker.HomeDatePickerItemDecoration
+import com.tasker.android.home.presentation.home.date_picker.HomeDatePickerAdapter
+import com.tasker.android.home.presentation.home.date_picker.HomeDatePickerItemDecoration
 import com.tasker.android.home.model.HomeWeeklyCalendarData
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.tasker.android.home.presentation.list
+package com.tasker.android.home.presentation.home.list_view
 
 import androidx.lifecycle.ViewModel
 import com.tasker.android.home.model.HomeTaskData

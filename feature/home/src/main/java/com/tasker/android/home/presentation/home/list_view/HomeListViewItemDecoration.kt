@@ -1,8 +1,7 @@
-package com.tasker.android.home.presentation.list
+package com.tasker.android.home.presentation.home.list_view
 
 import android.content.Context
 import android.graphics.Rect
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.tasker.android.home.R
