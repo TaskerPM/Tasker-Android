@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.tasker.android.home.presentation.main.HomeViewModel" />
+            type="com.tasker.android.home.presentation.home.main.HomeViewModel" />
 
     </data>
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
-        tools:context=".presentation.main.HomeFragment">
+        tools:context=".presentation.home.main.HomeFragment">
 
         <TextView
             android:id="@+id/tv_home_year_month"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:src="@drawable/icon_home_calendar"
+            android:src="@drawable/ic_main_calendar"
             app:layout_constraintBottom_toBottomOf="@id/tv_home_year_month"
             app:layout_constraintStart_toEndOf="@id/tv_home_year_month"
             app:layout_constraintTop_toTopOf="@id/tv_home_year_month" />

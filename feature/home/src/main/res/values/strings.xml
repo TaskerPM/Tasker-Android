@@ -10,16 +10,39 @@
     <string name="home_year_month">%1$d년 %2$s월</string>
     <string name="home_list_view_add_task">추가</string>
 
-
     <!-- Home Calendar Bottom Sheet -->
     <string name="home_calendar_bottom_sheet_today">오늘</string>
     <string name="home_calendar_bottom_sheet_date">%1$d년 %2$s월</string>
 
+    <!-- Home Task Detail -->
+    <string name="home_task_detail_add_note">노트 추가</string>
+    <string name="home_task_detail_tag_none">선택 안 함</string>
 
-    <!-- Home Detail Page -->
-    <string name="home_detail_page_add_note">노트 추가</string>
-    <string name="home_detail_page_tag_none">선택 안 함</string>
+    <!-- Unsaved Changes Dialog -->
+    <string name="button_choice_dialog_title">저장되지 않았습니다</string>
+    <string name="button_choice_dialog_subtitle">뒤로 갈 경우, 작성 중인 내용이 삭제됩니다.</string>
+    <string name="button_choice_dialog_save">저장하기</string>
+    <string name="button_choice_dialog_go_back">뒤로가기</string>
 
+    <!-- Invalid Time Interval Dialog -->
+    <string name="confirmation_dialog_overlap_title">다른 테스크와 시간이 겹칩니다.\n시간을 다시 설정해주세요.</string>
+    <string name="confirmation_dialog_same_start_end_title">시작 시간과 종료 시간이 같습니다.\n시간을 다시 설정해주세요.</string>
+    <string name="confirmation_dialog_end_before_start_title">시작 시간보다 종료 시간이 이릅니다.\n시간을 다시 설정해주세요.</string>
+
+    <!-- Timepicker Bottom Sheet -->
+    <string name="timepicker_bottom_sheet_start_time">시작시간</string>
+    <string name="timepicker_bottom_sheet_end_time">종료시간</string>
+    <string name="timepicker_bottom_sheet_next">다음</string>
+    <string name="timepicker_bottom_sheet_confirm">확인</string>
+
+    <!-- Home Category -->
+    <string name="home_category_title">"카테고리"</string>
+
+    <!-- Home Category Add -->
+    <string name="home_cateogry_add_title">"카테고리 생성"</string>
+    <string name="home_category_add_finish">"완료</string>
+    <string name="home_category_add_name_label">카테고리 이름</string>
+    <string name="home_category_add_color_label">색상</string>
 
 
 </resources>

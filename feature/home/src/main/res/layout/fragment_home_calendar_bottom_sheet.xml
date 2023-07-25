@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.calendar.HomeCalendarBottomSheetFragment">
+    tools:context=".presentation.home.calendar_view.HomeCalendarBottomSheetFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_home_calendar_bottom_sheet"
+        android:background="@drawable/bg_calendar_bottom_sheet"
         android:paddingHorizontal="16dp"
         android:paddingBottom="24dp">
 
@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:background="@drawable/background_home_calendar_today"
+                    android:background="@drawable/bg_calendar_today"
                     android:fontFamily="@font/font_pretendard_regular_400"
                     android:lineHeight="14sp"
                     android:paddingHorizontal="12dp"
@@ -56,14 +56,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:src="@drawable/icon_home_calendar_back" />
+                android:src="@drawable/ic_calendar_back" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_home_calendar_forward"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/icon_home_calendar_forward" />
+                android:src="@drawable/ic_calendar_forward" />
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView

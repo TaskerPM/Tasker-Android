@@ -6,7 +6,7 @@ import android.graphics.Paint
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.tasker.android.common.util.getColorFrom
-import com.tasker.android.home.presentation.category.HomeCategoryViewAdapter
+import com.tasker.android.home.presentation.home.category_view.HomeCategoryViewAdapter
 
 class SwipeController(
     private val context: Context,

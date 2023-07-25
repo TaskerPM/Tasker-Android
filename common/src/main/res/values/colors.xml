@@ -7,7 +7,6 @@
     <color name="teal_700">#FF018786</color>
 
     <!-- BASIC -->
-
     <color name="black_basic">#1F1F1F</color>
     <color name="red_basic">#D05D4D</color>
     <color name="text_basic">#595959</color>
@@ -16,10 +15,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 
-
-
     <!-- GRAY -->
-
     <color name="gray_10">#F9F9F9</color>
     <color name="gray_15">#F5F5F5</color>
     <color name="gray_20">#F3F3F3</color>
@@ -38,12 +34,25 @@
     <color name="gray_800">#565656</color>
     <color name="gray_900">#333333</color>
 
-
-
     <!-- SELECTOR-->
-
     <color name="black_27">#273B4A</color>
     <color name="black_6b">#6B6B6B</color>
+
+    <!-- BACKGROUND -->
+    <color name="red_bg">#FFE5E5</color>
+    <color name="orange_bg">#FBEBD3</color>
+    <color name="yellow_bg">#FFF9C6</color>
+    <color name="green_bg">#E6FBCD</color>
+    <color name="blue_bg">#DAF8FA</color>
+    <color name="purple_bg">#F2E6FA</color>
+    
+    <!-- TEXT -->
+    <color name="red_text">#D87A7A</color>
+    <color name="orange_text">#DE9B38</color>
+    <color name="yellow_text">#DBAE0F</color>
+    <color name="green_text">#86BA46</color>
+    <color name="blue_text">#60B9BF</color>
+    <color name="purple_text">#AB77CE</color>
 
 
 
